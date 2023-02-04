@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html{
+  font-family: 'Poppins';
+}
+@layer utilities{
+  .bg-cwivel-green{
+    background-color: rgba(37, 190, 90, 1);
+  }
+  .text-cwivel{
+    color: rgba(37, 190, 90, 1);
+  }
+}
