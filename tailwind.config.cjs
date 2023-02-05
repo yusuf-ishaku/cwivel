@@ -8,7 +8,8 @@ module.exports = {
     "./src/pages/dashboard.jsx",
     "./src/pages/bookings.jsx",
     "./src/pages/home.jsx",
-    "./src/pages/users.jsx"
+    "./src/pages/users.jsx",
+    "./src/assets/components/artisanSelect.jsx"
   ],
   theme: {
     extend: {},
