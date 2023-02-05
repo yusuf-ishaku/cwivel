@@ -1,3 +1,12 @@
+import { Navbar } from "../assets/components/navbar"
+
 export const Home = () => {
-    return <div>This is the home page</div>
+    return(
+        <>
+            <Navbar/>
+            <div className="w-full h-fit bg-cwivel-green">
+                
+            </div>
+        </>
+    ) 
 }
