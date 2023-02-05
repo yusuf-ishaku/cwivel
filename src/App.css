@@ -6,6 +6,9 @@
 html{
   font-family: 'Poppins';
 }
+input::placeholder{
+  color: white;
+}
 @layer utilities{
   .bg-cwivel-green{
     background-color: rgba(37, 190, 90, 1);
