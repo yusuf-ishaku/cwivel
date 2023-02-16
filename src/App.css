@@ -19,4 +19,13 @@ input::placeholder{
   .border-me{
     border-width: 1px;
   }
+  .h-unit{
+    height: 10px;
+  }
+  .blight{
+    background-color: rgba(129, 117, 96, 0.282);
+  }
+  .global-class-name{
+    vertical-align: middle;
+  }
 }

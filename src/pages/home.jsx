@@ -2,6 +2,8 @@ import { Navbar } from "../assets/components/navbar";
 
 import { ArtisanSelect } from "../assets/components/artisanSelect";
 
+import { ArtisanCards } from "../assets/components/artisanCards";
+
 import Sitting from "../assets/img/sitting.png";
 import Carpenter from "../assets/img/Carpenter.png";
 import Cleaner from "../assets/img/Cleaner.png";
@@ -11,6 +13,9 @@ import Electronics from "../assets/img/Electronics.png";
 import Laundry from "../assets/img/Laundry.png";
 import Mechanic from "../assets/img/Mechanic.png";
 import Plumber from "../assets/img/Plumber.png";
+
+import BarberImage from "../assets/img/barber.png";
+import SauveImage from "../assets/img/sauve.png";
 export const Home = () => {
     return(
         <>
@@ -36,6 +41,22 @@ export const Home = () => {
                     <ArtisanSelect image = {Driver} craft = "Shifter"/>
                     <ArtisanSelect image = {Electronics} craft = "Electronics"/>
                     <ArtisanSelect image = {Cleaneragain} craft = "Cleaner"/>
+                </div>
+                <div className="flex flex-col h-fit w-full p-3 mt-16">
+                    <div className="intros flex flex-row justify-between w-full">
+                        <div className="">
+                            <h1 className="text-2xl font-bold">Top Artisans in Lekki</h1>
+                            <h3 className="text-gray-400 text-lg font-normal">Hire top artisans around you</h3>
+                        </div>
+                        <div className="flex justify-center items-center ml-auto">
+                            <a href="#" className="text-cwivel text-md font-semibold">See all</a>
+                        </div>
+                    </div>
+                    <div className="w-full pt-8 mb-16 flex flex-row">
+                        <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
+                        <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
+                        <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                    </div>
                 </div>
             </div>
         </>
