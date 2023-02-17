@@ -4,6 +4,7 @@ module.exports = {
     "./index.html",
     "./src/App.jsx",
     "./src/assets/components/navbar.jsx",
+    "./src/pages/signup.jsx",
     "./src/pages/chat.jsx",
     "./src/pages/dashboard.jsx",
     "./src/pages/bookings.jsx",
