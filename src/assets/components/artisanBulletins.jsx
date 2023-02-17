@@ -17,7 +17,7 @@ export const ArtisanBulletins = (props) =>{
                                 <span className="pl-2 font-semibold">{props.rating}</span>
                                 <span className="pl-1 text-sm font-normal">({props.nReview})</span>
                             </div>
-                            <span className="block py-2 text-md font-semibold">N{props.dprice}/hr <span className="text-gray-400 line-through">N{props.oPrice}/hr</span></span>
+                            <span className="block py-2 text-md font-light">N{props.dprice}/hr <span className="text-gray-400 line-through">N{props.oPrice}/hr</span></span>
                         </IconContext.Provider>
                     </div>
                 </div>
