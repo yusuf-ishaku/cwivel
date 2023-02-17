@@ -21,6 +21,8 @@ import Spiral from "../assets/img/spiral (1).png";
 import Spiral2 from "../assets/img/spiral.png";
 
 import PChef from "../assets/img/chef (1).png";
+import Eleco from "../assets/img/eleco.png";
+import Cleaner2 from "../assets/img/cleaner2.png";
 export const Home = () => {
     return(
         <>
@@ -73,8 +75,10 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-full pt-8 mb-16 flex flex-row">
+                    <div className="w-full flex flex-row justify-between">
                         <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                        <ArtisanBulletins image = {Cleaner2} craft = "Cleaner" stName = "Pro Cleaner" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                        <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
                     </div>
                 </div>
                 <div className="w-full py-8 pb-8 h-fit flex items-center">

@@ -3,8 +3,8 @@ import { IconContext } from "react-icons";
 export const ArtisanBulletins = (props) =>{
     return(
         <>
-        <div className="w-fit h-72 flex flex-row bg-white rounded-3xl drop-shadow-lg ">
-            <img className="1/2" src={props.image} alt="Barber salon"></img>
+        <div className="w-fit h-64 mx-2 flex flex-row bg-white rounded-3xl drop-shadow-lg ">
+            <img className="w-1/2" src={props.image} alt="Barber salon"></img>
             <div className="w-56">
                 <div className="flex flex-col justify-center p-4">
                     <h3 className="block text-cwivel font-light text-md mt-2">{props.craft}</h3>
