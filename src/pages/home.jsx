@@ -99,14 +99,65 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-around items-center my-32 w-full bg-cwivel-green h-256">
+            <div className="w-fuller flex justify-around items-center my-32 w-full bg-cwivel-green h-256">
                     <img src={Group} alt="Monkey wrench" />
-                    <div className="w-1/2">
-                        <h1 className="text-white">Too much job on your hand?</h1>
-                        <h1 className="text-white">You can outsource here.</h1>
-                        <h1 className="text-white">Hire artisans and sub-contract your projects to them.</h1>
-                        <button className="bg-white text-cwivel"></button>
+                    <div >
+                        <h1 className="text-white text-lg">Too much job on your hand?</h1>
+                        <h1 className="text-white text-lg">You can outsource here.</h1>
+                        <h1 className="text-white text-lg">Hire artisans and sub-contract your projects to them.</h1>
+                        <button className="bg-white text-cwivel p-2 mt-5 rounded-full">Find Artisans</button>
                     </div>
+            </div>
+            <div className="w-full flex h-fit py-4">
+                <div className="border-cwivel h-52 pl-16 p-4 border-2 w-1/2">
+                    <p className="text-sm">
+                        We are a lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.
+                    </p>
+                    <div className="w-full py-6 flex">
+                        <div className="w-fit h-fit flex">
+                            <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                            <span className="block ml-4">Have a question?</span>
+                        </div>
+                        <div className="w-fit h-fit flex">
+                            <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                            <span className="block ml-4">Contact us at:</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className="border-cwivel pl-12 p-4 border-2 border-l-0 w-1/2 h-52">
+                    <p className="text-sm">
+                        Be the first one to know  about discounts, offers and events weekly in your mailbox. Unsubscribe whenever you like with one click.
+                    </p>
+                    <div className="w-full py-6 h-fit flex">
+                        <input className="bg-cwivel-green w-[540px] h-10 rounded-full p-3" placeholder="Enter your email"  type="email" name="email" id="email" />
+                        <button className="w-24 h-8 -ml-[100px] mt-1 text-cwivel p-1 bg-white rounded-full">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div className="w-full h-fit px-6 my-10 flex justify-between">
+                    <span className="block text-gray-400 text-md">About us</span>
+                    <span className="block text-gray-400 text-md">Jobs</span>
+                    <span className="block text-gray-400 text-md">Blog</span>
+                    <span className="block text-gray-400 text-md">Press</span>
+                    <span className="block text-gray-400 text-md">FAQs</span>
+                    <span className="block text-gray-400 text-md">Careers</span>
+                    <span className="block text-gray-400 text-md">Contact</span>
+                    <span className="block text-gray-400 text-md">Privacy Policy</span>
+                    <span className="block text-gray-400 text-md">Stemap</span>
+                    <span className="block text-gray-400 text-md">Terms of Use</span>
+            </div>
+            <div className="w-full px-16 my-4 py-6 flex justify-between">
+                <div className="flex justify-between w-1/3">
+                    <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                    <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                    <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                    <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                    <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                </div>
+                <div className="w-auto py-6 text-gray-400">
+                    Copyright 2023 Cwivel || All Rights Reserved
+                </div>
             </div>
         </>
     ) 

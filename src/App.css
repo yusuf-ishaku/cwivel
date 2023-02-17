@@ -19,6 +19,9 @@ input::placeholder{
   .border-me{
     border-width: 1px;
   }
+  .border-cwivel{
+    border-color: rgba(37, 190, 90, 1);
+  }
   .h-unit{
     height: 10px;
   }
@@ -41,7 +44,7 @@ input::placeholder{
     margin-left: 0.1em;
   }
   .w-fuller{
-    width: 100vw;
-   
+    width: 100%;
+    padding: 0;
   }
 }
