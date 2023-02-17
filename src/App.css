@@ -40,4 +40,8 @@ input::placeholder{
     width: 1em;
     margin-left: 0.1em;
   }
+  .w-fuller{
+    width: 100vw;
+   
+  }
 }

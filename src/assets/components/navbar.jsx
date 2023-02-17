@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 export const Navbar = () => {
     return(
-        <div className="w-100 py-4 flex justify-between items-center">
+        <div className="w-100 py-4 px-16 flex justify-between items-center">
             <div className="text-cwivel text-lg block p-2">Cwivel</div>
             <div className="w-fit flex">
                 <Link to="/">.</Link>

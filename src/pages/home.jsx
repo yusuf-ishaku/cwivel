@@ -23,11 +23,13 @@ import Spiral2 from "../assets/img/spiral.png";
 import PChef from "../assets/img/chef (1).png";
 import Eleco from "../assets/img/eleco.png";
 import Cleaner2 from "../assets/img/cleaner2.png";
+
+import Group from "../assets/img/group.png"
 export const Home = () => {
     return(
         <>
             <Navbar/>
-            <div className="w-full">
+            <div className="w-full px-16">
                 <div className="hero w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-2/5">
                         <p className="text-md md:text-3xl font-bold block text-cwivel leading-8">
@@ -81,7 +83,7 @@ export const Home = () => {
                         <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
                     </div>
                 </div>
-                <div className="w-full py-8 pb-8 h-fit flex items-center">
+                <div className="w-full py-32 pb-8 h-fit flex items-center">
                     <div className="mr-auto">
                         <h3 className="font-semibold text-2xl">Why choose us?</h3>
                         <ul className="list pt-1">
@@ -96,6 +98,15 @@ export const Home = () => {
                         <img className="absolute -ml-28 -mt-32" src={Spiral2} alt="Second square" />
                     </div>
                 </div>
+            </div>
+            <div className="flex justify-around items-center my-32 w-full bg-cwivel-green h-256">
+                    <img src={Group} alt="Monkey wrench" />
+                    <div className="w-1/2">
+                        <h1 className="text-white">Too much job on your hand?</h1>
+                        <h1 className="text-white">You can outsource here.</h1>
+                        <h1 className="text-white">Hire artisans and sub-contract your projects to them.</h1>
+                        <button className="bg-white text-cwivel"></button>
+                    </div>
             </div>
         </>
     ) 

@@ -13,7 +13,7 @@ import { Signup } from './pages/signup';
 
 function App() {
   return (
-    <div className="App px-16">
+    <div className="App">
       <Router>
         <Routes>
           <Route path='/' element = {<Home/>}/>
