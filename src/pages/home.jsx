@@ -19,6 +19,8 @@ import SauveImage from "../assets/img/sauve.png";
 
 import Spiral from "../assets/img/spiral (1).png";
 import Spiral2 from "../assets/img/spiral.png";
+
+import PChef from "../assets/img/chef (1).png";
 export const Home = () => {
     return(
         <>
@@ -72,7 +74,7 @@ export const Home = () => {
                         </div>
                     </div>
                     <div className="w-full pt-8 mb-16 flex flex-row">
-                        <ArtisanBulletins image = {}></ArtisanBulletins>
+                        <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
                     </div>
                 </div>
                 <div className="w-full py-8 pb-8 h-fit flex items-center">

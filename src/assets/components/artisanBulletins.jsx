@@ -1,23 +1,23 @@
-export const ArtisanBulletins = () =>{
+import { AiFillStar } from "react-icons/ai";
+import { IconContext } from "react-icons";
+export const ArtisanBulletins = (props) =>{
     return(
         <>
-        <div className="w-auto h-72 mx-4 flex flex-col bg-white rounded-xl drop-shadow-lg ">
-            <img className="rounded-xl -z-10 relative" src={props.image} alt="Barber salon"></img>
-            <div className="w-auto m-4 flex">
-                <div className="flex flex-col">
-                    <h3 className="block font-semibold text-lg mt-2">{props.artisanName}</h3>
-                    <h5 className="block font-light text-md my-1">{props.location}</h5>
-                    <div className="flex items-center">
-                        <IconContext.Provider value={{ color: "orange", className: "global-class-name" }}>
-                            <div className="pt-1 flex justify-between w-24">
+        <div className="w-fit h-72 flex flex-row bg-white rounded-3xl drop-shadow-lg ">
+            <img className="1/2" src={props.image} alt="Barber salon"></img>
+            <div className="w-56">
+                <div className="flex flex-col justify-center p-4">
+                    <h3 className="block text-cwivel font-light text-md mt-2">{props.craft}</h3>
+                    <h5 className="block font-semibold text-xl my-2 mt-3">{props.stName}</h5>
+                    <h3 className="block font-light text-xl text-gray-400">{props.location}</h3>
+                    <div className="flex flex-col">
+                        <IconContext.Provider value={{ color: "orange", size: "2em", className: "global-class-name" }}>
+                            <div className="pt-1 flex items-center">
                                 <AiFillStar />
-                                <AiFillStar />
-                                <AiFillStar />
-                                <AiFillStar />
-                                <AiFillStar />
-
+                                <span className="pl-2 font-semibold">{props.rating}</span>
+                                <span className="pl-1 text-md font-normal">({props.nReview})</span>
                             </div>
-                            <span className="pl-1 text-xs">({props.rating})</span>
+                            <span className="block py-2 text-lg font-semibold">N{props.dprice}/hr <span className="text-gray-400 line-through">N{props.oPrice}/hr</span></span>
                         </IconContext.Provider>
                     </div>
                 </div>
