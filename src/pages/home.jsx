@@ -1,7 +1,7 @@
 import { Navbar } from "../assets/components/navbar";
 
 import { ArtisanSelect } from "../assets/components/artisanSelect";
-
+import { ArtisanBulletins } from "../assets/components/artisanBulletins";
 import { ArtisanCards } from "../assets/components/artisanCards";
 
 import Sitting from "../assets/img/sitting.png";
@@ -16,6 +16,9 @@ import Plumber from "../assets/img/Plumber.png";
 
 import BarberImage from "../assets/img/barber.png";
 import SauveImage from "../assets/img/sauve.png";
+
+import Spiral from "../assets/img/spiral (1).png";
+import Spiral2 from "../assets/img/spiral.png";
 export const Home = () => {
     return(
         <>
@@ -56,6 +59,35 @@ export const Home = () => {
                         <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
                         <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
                         <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                    </div>
+                </div>
+                <div className="flex flex-col h-fit w-full p-3 mt-16">
+                    <div className="intros flex flex-row justify-between w-full">
+                        <div className="">
+                            <h1 className="text-2xl font-bold">Top Deals and Offers</h1>
+                            <h3 className="text-gray-400 text-lg font-normal">Top Hire Discount for the week.</h3>
+                        </div>
+                        <div className="flex justify-center items-center ml-auto">
+                            <a href="#" className="text-cwivel text-md font-semibold">See all</a>
+                        </div>
+                    </div>
+                    <div className="w-full pt-8 mb-16 flex flex-row">
+                        <ArtisanBulletins image = {}></ArtisanBulletins>
+                    </div>
+                </div>
+                <div className="w-full py-8 pb-8 h-fit flex items-center">
+                    <div className="mr-auto">
+                        <h3 className="font-semibold text-2xl">Why choose us?</h3>
+                        <ul className="list pt-1">
+                            <li className="p-1">Get connected with clients across Nigeria</li>
+                            <li className="p-1">Meet with client, negotiate your rate and get paid immediatly after services</li>
+                            <li className="p-1"> Get connected with artisans across Nigeria, Distance is no longer a barrier</li>
+                            <li className="p-1">Power within your reach</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src={Spiral} alt="First Square" />
+                        <img className="absolute -ml-28 -mt-32" src={Spiral2} alt="Second square" />
                     </div>
                 </div>
             </div>
