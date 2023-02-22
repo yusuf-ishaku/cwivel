@@ -10,6 +10,7 @@ module.exports = {
     "./src/pages/bookings.jsx",
     "./src/pages/home.jsx",
     "./src/pages/users.jsx",
+    "./src/pages/login.jsx",
     "./src/assets/components/artisanSelect.jsx",
     "./src/assets/components/artisanCards.jsx",
     "./src/assets/components/artisanBulletins.jsx"

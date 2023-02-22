@@ -7,7 +7,7 @@ export const Navbar = () => {
                 <Link to="/">.</Link>
                 <Link to="/chat" className="text-lg block p-2">Chat</Link>
                 <Link to="/bookings" className="text-lg block p-2">Bookings</Link>
-                <Link to="/users" className="text-lg block p-2"> Bookings </Link>
+                <Link to="/users" className="text-lg block p-2"> Users </Link>
                 <Link to="/dashboard" className="text-lg block p-2"> Dashboard</Link>
             </div>
             <div className="w-fit flex">
