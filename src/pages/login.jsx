@@ -4,16 +4,21 @@ import { FcGoogle } from 'react-icons/fc'
 import SignupImage from '../assets/img/signup-img.png';
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
-import SignupLine from '../assets/img/signup-line.png'
+import SignupLine from '../assets/img/signup-line.png';
+import SignUpLineTab from '../assets/img/SignupLineTab.png';
+import SignupImageTab from '../assets/img/SignupImageTab.png'
 export const Login = () =>{
     return (
         <>
-        <div className='w-full h-full flex flex-row'>
-            <div className='w-3/6 h-full'>
-                <img className='w-auto absolute h-[100vh]' src={SignupImage} alt=''></img>
-                <img className='w-auto absolute ml-60 h-[100vh]' src={SignupLine} alt=""></img>
+        <div className='w-full h-full flex flex-col-reverse items-center sm:flex sm:flex-row sm:justify-center sm:items-start'>
+            <div className='w-4/6 sm:w-3/6 hidden sm:block  h-full'>
+                <img className='w-auto hidden lg:block  absolute h-[100vh]' src={SignupImage} alt=''></img>
+                <img className='w-auto hidden sm:block lg:hidden absolute h-[100vh]' src={SignupImageTab} alt=''></img>
+
+                <img className='w-auto hidden lg:block absolute ml-60 h-[100vh]' src={SignupLine} alt=""></img>
+                <img className='w-auto hidden sm:block lg:hidden absolute ml-40 h-[100vh]' src={SignUpLineTab} alt=""></img>
             </div>
-            <div className='w-2/6 h-[100vh] px-5 flex flex-col justify-center'>
+            <div className='sm:w-2/6 w-full h-[100vh] px-5 flex flex-col justify-center'>
                 <div className="w-auto h-fit my-auto">
                     <h3 className='text-cwivel text-2xl font-semibold'>Welcome back</h3>
                     <h4 className='text-slate-600 text-md block my-3'>Please enter your details to continue</h4>
@@ -41,7 +46,7 @@ export const Login = () =>{
                 </div>
                
             </div>
-            <div className="cwivel w-1/6">
+            <div className="cwivel sm:w-1/6">
                 <h1>Cwivel</h1>
             </div>
         </div>
