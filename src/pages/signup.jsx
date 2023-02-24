@@ -25,10 +25,12 @@ export const Signup = () =>{
                                 <span className='text-md ml-4'>Sign up as a user</span>
                             </div>
                         </Link>
-                        <div className='w-full cn h-20 my-4 p-4 items-center rounded-lg flex border-cwivel border-me cursor-pointer'>
-                            <FaToolbox></FaToolbox>
-                            <span className='text-md ml-4'>Sign up as an artisan</span>
-                        </div>
+                        <Link to="/artisansignup" className='w-full'>
+                            <div className='w-full cn h-20 my-4 p-4 items-center rounded-lg flex border-cwivel border-me cursor-pointer'>
+                                <FaToolbox></FaToolbox>
+                                <span className='text-md ml-4'>Sign up as an artisan</span>
+                            </div>
+                        </Link>
                     </IconContext.Provider>
                     <div className="flex w-full items-center justify-between">
                         <Link to= "/"><span className="block p-4 text-md text-cwivel">Back</span></Link>    

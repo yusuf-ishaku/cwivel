@@ -10,6 +10,7 @@ import { Bookings } from './pages/bookings';
 import { Login } from './pages/login';
 import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
+import { ArtisanSignUP } from './pages/artisansignup';
 function App() {
   return (
     <div className="App">
@@ -23,6 +24,7 @@ function App() {
           <Route path='/login' element = {<Login></Login>}></Route>
           <Route path='/signup' element = {<Signup></Signup>}></Route>
           <Route path='/signupuser' element = {<SignUpUser></SignUpUser>}></Route>
+          <Route path='/artisansignup' element = {<ArtisanSignUP></ArtisanSignUP>}></Route>
           <Route path='*' element = {<h2>Page not found</h2>}/>
         </Routes>
       </Router>
