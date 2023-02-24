@@ -24,10 +24,14 @@ export const Login = () =>{
                     <h4 className='text-slate-600 text-md block my-3'>Please enter your details to continue</h4>
                     <form className=''>
                         <label htmlFor="email" className='text-slate-700'>Email</label>
-                        <input className='w-full block p-2 my-1 mb-3 text-sm  border-gray-400 bg-transparent border-me rounded-md focus:outline-none' type="text" placeholder = "j" required/>
+                        <input className='w-full block p-2 my-1 mb-3 text-sm placeholder-gray-400  border-gray-400 bg-transparent border-me rounded-md focus:outline-none' type="text" placeholder = "example@gmail.com" required/>
                         <label htmlFor="password" className='text-slate-700'>Password</label>
-                        <input className='w-full block p-2 my-1 text-sm  border-gray-400 bg-transparent border-me rounded-md focus:outline-none' type="password" placeholder = "j" required/>
-
+                        <IconContext.Provider value={{size: "20", className: "text-gray-400" }}>
+                            <div className="flex items-center">
+                                <input className='w-full block p-2 my-1 text-sm placeholder-gray-400  border-gray-400 bg-transparent border-me rounded-md focus:outline-none' type="password" placeholder = "******" required/>
+                                <AiOutlineEyeInvisible className='-ml-8'></AiOutlineEyeInvisible>
+                            </div>
+                        </IconContext.Provider>
                         <div className="flex my-3 w-auto ">
                             <input type="checkbox" name="remember me" id="remember-me" /> <span className='text-slate-500 ml-1'>Remember me</span>
                             <span className="inline-block ml-auto text-cwivel font-semibold">Forgot Password?</span>
