@@ -10,7 +10,7 @@ export const Signup = () =>{
     return (
         <>
             <div className="w-full">
-                <div className="w-[40%] flex flex-col items-center pt-16 mx-auto h-[100vh]">
+                <div className="w-[90%] sm:w-[60%] lg:w-[40%] flex flex-col items-center pt-16 mx-auto h-[100vh]">
                     <img src = "" alt = "Logo"/>
                     <div className="w-full my-2">
                         <h1 className='text-cwivel text-xl p-2 my-2'>Sign Up </h1>
@@ -19,10 +19,12 @@ export const Signup = () =>{
                         </p>
                     </div>
                     <IconContext.Provider value={{ color: "rgba(37, 190, 90, 1)", className: "global-class-name" }}>
-                        <div className='w-full cn h-20 my-4 p-4 items-center rounded-lg flex border-cwivel border-me cursor-pointer'>
-                            <FaUser></FaUser>
-                            <span className='text-md ml-4'>Sign up as a user</span>
-                        </div>
+                        <Link to="/signupuser" className = 'w-full'>
+                            <div className='w-full cn h-20 my-4 p-4 items-center rounded-lg flex border-cwivel border-me cursor-pointer'>
+                                <FaUser></FaUser>
+                                <span className='text-md ml-4'>Sign up as a user</span>
+                            </div>
+                        </Link>
                         <div className='w-full cn h-20 my-4 p-4 items-center rounded-lg flex border-cwivel border-me cursor-pointer'>
                             <FaToolbox></FaToolbox>
                             <span className='text-md ml-4'>Sign up as an artisan</span>

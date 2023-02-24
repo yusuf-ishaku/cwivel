@@ -1,17 +1,17 @@
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc'
-import SignupImage from '../assets/img/signup-img.png';
+import SignupImage from '../assets/img/login-img.png';
 import { IconContext } from "react-icons";
 import { Link } from 'react-router-dom';
-import SignupLine from '../assets/img/signup-line.png';
-import SignUpLineTab from '../assets/img/SignupLineTab.png';
-import SignupImageTab from '../assets/img/SignupImageTab.png'
+import SignupLine from '../assets/img/login-line.png';
+import SignUpLineTab from '../assets/img/LoginLineTab.png';
+import SignupImageTab from '../assets/img/LoginImageTab.png'
 export const Login = () =>{
     return (
         <>
         <div className='w-full h-full flex flex-col-reverse items-center sm:flex sm:flex-row sm:justify-center sm:items-start'>
-            <div className='w-4/6 sm:w-3/6 hidden sm:block  h-full'>
+            <div className='w-4/6 sm:w-3/6 hidden sm:block h-full'>
                 <img className='w-auto hidden lg:block  absolute h-[100vh]' src={SignupImage} alt=''></img>
                 <img className='w-auto hidden sm:block lg:hidden absolute h-[100vh]' src={SignupImageTab} alt=''></img>
 
