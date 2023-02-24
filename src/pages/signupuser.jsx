@@ -11,7 +11,7 @@ export const SignUpUser  = () =>{
     // console.log(type)
     return (
         <>
-         <div className='w-full h-full flex flex-col items-center sm:flex sm:flex-row'>
+         <div className='w-full h-full flex flex-col items-center sm:items-start sm:flex sm:flex-row'>
             <div className='sm:w-1/6 w-auto'>
                 Hello World
             </div>
