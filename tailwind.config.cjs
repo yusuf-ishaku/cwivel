@@ -12,6 +12,7 @@ module.exports = {
     "./src/pages/users.jsx",
     "./src/pages/login.jsx",
     "./src/pages/signupuser.jsx",
+    "./src/pages/artisansignup.jsx",
     "./src/assets/components/artisanSelect.jsx",
     "./src/assets/components/artisanCards.jsx",
     "./src/assets/components/artisanBulletins.jsx"
