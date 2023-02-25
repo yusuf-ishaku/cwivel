@@ -48,7 +48,7 @@ export const ArtisanSignUp = () =>{
                             <div className="sm:w-1/2 tl sm:flex flex-col hidden" >
                                 <input type="text" name="service" placeholder="Services offered" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
                                 <input type="text" name="service" placeholder="" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
-                                <textarea type="text" name="bio" placeholder="Bio" rows="5" className="w-[60%] mx-10 rounded-md p-3 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
+                                <textarea type="text" name="bio" placeholder="Bio" rows="10" cols="50" className="w-[60%] mx-10 rounded-md p-3 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
                                 <input type="text" name="em" placeholder="" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
                                 <div className="flex w-[70%] mx-20 sm:w-[60%] sm:mx-10 items-center">
                                     <Link to="/signup" className="hidden sm:block"><span className="block text-cwivel">Back</span></Link>
