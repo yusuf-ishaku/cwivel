@@ -24,7 +24,7 @@ import PChef from "../assets/img/chef (1).png";
 import Eleco from "../assets/img/eleco.png";
 import Cleaner2 from "../assets/img/cleaner2.png";
 
-import Group from "../assets/img/group.png"
+import Group from "../assets/img/Group.png"
 export const Home = () => {
     return(
         <>
