@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImg.png';
-import SignUpUserLIne from '../assets/img/SignUpUserLIne.png';
+import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
 import SignUpUserTab from "../assets/img/SignUpImageTab.png"
 import {AiOutlineMail} from 'react-icons/ai'
 import SignUpUserLineTab from '../assets/img/SignUpLineTab.png'
