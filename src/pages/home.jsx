@@ -29,15 +29,15 @@ export const Home = () => {
     return(
         <>
             <Navbar/>
-            <div className="w-full px-16">
+            <div className="w-[100vw] px-4 sm:px-10 md:px-16">
                 <div className="hero w-full py-12 flex flex-row justify-between items-center">
-                    <div className="block h-fit w-2/5">
-                        <p className="text-md md:text-3xl font-bold block text-cwivel leading-8">
+                    <div className="block h-fit w-full sm:w-2/5 ">
+                        <p className="text-lg w-2/5 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
                             Find The Perfect Artisan Best Suited For Your needs
                         </p>
-                        <input type="search" name="Search" id="search" placeholder="Search for carpentar, cleaner and more" className="w-full mt-7 p-3 bg-cwivel-green text-white rounded-md focus:outline-none" />
+                        <input type="search" name="Search" id="search" placeholder="Search for carpentar, cleaner and more" className="w-[80%] mt-7 p-3 bg-cwivel-green text-white rounded-md focus:outline-none" />
                     </div>
-                    <div className="w-1/2 pl-6">
+                    <div className="sm:block hidden sm:w-3/5 pl-6">
                         <img src={Sitting} alt="Sitting man"/>
                     </div>
                 </div>
@@ -61,10 +61,13 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-full pt-8 mb-16 flex flex-row">
-                        <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
-                        <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
-                        <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                    <div className="w-auto overflow-x-auto">
+                        <div className="w-fit gap-10 p-4 mb-16 flex flex-row">
+                            <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
+                            <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
+                            <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                            <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                        </div>
                     </div>
                 </div>
                 <div className="flex flex-col h-fit w-full p-3 mt-16">
@@ -77,10 +80,12 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-full flex flex-row justify-between">
-                        <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
-                        <ArtisanBulletins image = {Cleaner2} craft = "Cleaner" stName = "Pro Cleaner" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
-                        <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                    <div className="w-auto p-10 overflow-x-auto">
+                        <div className="w-fit h-fit my-4 gap-10 flex flex-row justify-between">
+                            <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                            <ArtisanBulletins image = {Cleaner2} craft = "Cleaner" stName = "Pro Cleaner" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                            <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                        </div>
                     </div>
                 </div>
                 <div className="w-full py-32 pb-8 h-fit flex items-center">
@@ -93,7 +98,7 @@ export const Home = () => {
                             <li className="p-1">Power within your reach</li>
                         </ul>
                     </div>
-                    <div>
+                    <div className="hidden sm:block">
                         <img src={Spiral} alt="First Square" />
                         <img className="absolute -ml-28 -mt-32" src={Spiral2} alt="Second square" />
                     </div>
