@@ -29,7 +29,7 @@ export const Home = () => {
     return(
         <>
             <Navbar/>
-            <div className="w-[100vw] px-4 sm:px-10 md:px-16">
+            <div className="w-full px-4 sm:px-10 md:px-14">
                 <div className="hero w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-2/5 ">
                         <p className="text-lg w-2/5 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
@@ -41,7 +41,7 @@ export const Home = () => {
                         <img src={Sitting} alt="Sitting man"/>
                     </div>
                 </div>
-                <div className="flex flex-row justify-between h-fit w-auto p-3">
+                <div className="flex flex-row justify-between h-fit w-full">
                     <ArtisanSelect image = {Cleaner} craft = "Cleaner"/>
                     <ArtisanSelect image = {Mechanic} craft = "Mechanic"/>
                     <ArtisanSelect image = {Plumber} craft = "Plumber"/>
@@ -62,7 +62,7 @@ export const Home = () => {
                         </div>
                     </div>
                     <div className="w-auto overflow-x-auto">
-                        <div className="w-fit gap-10 p-4 mb-16 flex flex-row">
+                        <div className="w-fit gap-10 p-3 mb-16 flex flex-row">
                             <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
                             <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
                             <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
@@ -105,8 +105,8 @@ export const Home = () => {
                 </div>
             </div>
             <div className="w-fuller flex justify-around items-center my-32 w-full bg-cwivel-green h-256">
-                    <img src={Group} alt="Monkey wrench" />
-                    <div >
+                    <img src={Group} className="hidden md:block" alt="Monkey wrench" />
+                    <div className="py-10">
                         <h1 className="text-white text-lg">Too much job on your hand?</h1>
                         <h1 className="text-white text-lg">You can outsource here.</h1>
                         <h1 className="text-white text-lg">Hire artisans and sub-contract your projects to them.</h1>
