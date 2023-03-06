@@ -32,16 +32,16 @@ export const Home = () => {
             <div className="w-full px-4 sm:px-10 md:px-14">
                 <div className="hero w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-2/5 ">
-                        <p className="text-lg w-2/5 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
+                        <p className="text-lg w-4/6 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
                             Find The Perfect Artisan Best Suited For Your needs
                         </p>
                         <input type="search" name="Search" id="search" placeholder="Search for carpentar, cleaner and more" className="w-[80%] mt-7 p-3 bg-cwivel-green text-white rounded-md focus:outline-none" />
                     </div>
-                    <div className="sm:block hidden sm:w-3/5 pl-6">
+                    <div className="sm:block hidden sm:w-auto pl-6">
                         <img src={Sitting} alt="Sitting man"/>
                     </div>
                 </div>
-                <div className="flex flex-row justify-between h-fit w-full">
+                <div className="grid grid-cols-4 justify-around md:flex md:flex-row md:justify-between h-fit w-full">
                     <ArtisanSelect image = {Cleaner} craft = "Cleaner"/>
                     <ArtisanSelect image = {Mechanic} craft = "Mechanic"/>
                     <ArtisanSelect image = {Plumber} craft = "Plumber"/>
@@ -106,41 +106,41 @@ export const Home = () => {
             </div>
             <div className="w-fuller flex justify-around items-center my-32 w-full bg-cwivel-green h-256">
                     <img src={Group} className="hidden md:block" alt="Monkey wrench" />
-                    <div className="py-10">
+                    <div className="p-4 md:py-10">
                         <h1 className="text-white text-lg">Too much job on your hand?</h1>
                         <h1 className="text-white text-lg">You can outsource here.</h1>
                         <h1 className="text-white text-lg">Hire artisans and sub-contract your projects to them.</h1>
                         <button className="bg-white text-cwivel p-2 mt-5 rounded-full">Find Artisans</button>
                     </div>
             </div>
-            <div className="w-full flex h-fit py-4">
-                <div className="border-cwivel h-52 pl-16 p-4 border-2 w-1/2">
+            <div className="w-full flex h-fit">
+                <div className="border-cwivel lg:h-52 h-fit pl-2 lg:pl-16 p-4 border-2 w-1/2">
                     <p className="text-sm">
                         We are a lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.
                     </p>
-                    <div className="w-full py-6 flex">
-                        <div className="w-fit h-fit flex">
-                            <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                    <div className="w-full py-6 lg:py-6 flex mr-16">
+                        <div className="w-auto h-fit flex ">
+                            <div className="rounded-full w-16 h-13 md:h-16 bg-cwivel-green"></div>
                             <span className="block ml-4">Have a question?</span>
                         </div>
-                        <div className="w-fit h-fit flex">
-                            <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
+                        <div className="w-auto hidden h-fit sm:flex">
+                            <div className="rounded-full w-16 h-13 md:h-16 lg:w-16 lg:h-16 bg-cwivel-green"></div>
                             <span className="block ml-4">Contact us at:</span>
                         </div>
                     </div>
-                    
                 </div>
-                <div className="border-cwivel pl-12 p-4 border-2 border-l-0 w-1/2 h-52">
+                <div className="border-cwivel h-auto pl-2 lg:pl-12 p-4 border-2 border-l-0 w-1/2 lg:h-52 ">
                     <p className="text-sm">
                         Be the first one to know  about discounts, offers and events weekly in your mailbox. Unsubscribe whenever you like with one click.
                     </p>
-                    <div className="w-full py-6 h-fit flex">
+                    <div className="hidden w-full py-6 h-fit sm:flex">
                         <input className="bg-cwivel-green w-[540px] h-10 rounded-full p-3" placeholder="Enter your email"  type="email" name="email" id="email" />
                         <button className="w-24 h-8 -ml-[100px] mt-1 text-cwivel p-1 bg-white rounded-full">Submit</button>
                     </div>
                 </div>
             </div>
             <div className="w-full h-fit px-6 my-10 flex justify-between">
+                <div className="overflow-scroll md:overflow-auto gap-8 md:gap-0 w-auto flex">
                     <span className="block text-gray-400 text-md">About us</span>
                     <span className="block text-gray-400 text-md">Jobs</span>
                     <span className="block text-gray-400 text-md">Blog</span>
@@ -151,9 +151,10 @@ export const Home = () => {
                     <span className="block text-gray-400 text-md">Privacy Policy</span>
                     <span className="block text-gray-400 text-md">Stemap</span>
                     <span className="block text-gray-400 text-md">Terms of Use</span>
+                </div>
             </div>
-            <div className="w-full px-16 my-4 py-6 flex justify-between">
-                <div className="flex justify-between w-1/3">
+            <div className="w-full px-2 lg:px-16 my-4 py-6 flex md:flex-row flex-col justify-between">
+                <div className="flex justify-between w-full gap-4 md:gap-0 md:w-1/3">
                     <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
                     <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>
                     <div className="rounded-full w-16 h-16 bg-cwivel-green"></div>

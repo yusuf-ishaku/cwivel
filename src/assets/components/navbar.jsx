@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 export const Navbar = () => {
     return(
-        <div className="w-full px-14 flex py-4 flex-row justify-between items-center">
+        <div className="w-full px-4 md:px-14 flex py-4 flex-row justify-between items-center">
             <div className="text-cwivel m-1 text-xs sm:text-lg block p-2">Cwivel</div>
             <div className="w-full sm:flex hidden ml-auto">
                 <div className="w-fit flex ml-auto">
