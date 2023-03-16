@@ -1,6 +1,10 @@
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
+import { BsBookmarkDash } from "react-icons/bs";
+import { BsBookmarkDashFill } from "react-icons/bs";
+import { useState } from "react";
 export const ArtisanCards = (props) =>{
+    const [bookmark, setBookMark] = useState(true);
     return(
         <>
         <div className="w-auto sm:w-[350px] h-80 ml-4 mr-4 my-3 z-50 bg-white rounded-xl drop-shadow-lg ">
@@ -22,7 +26,15 @@ export const ArtisanCards = (props) =>{
                             </div>
                             <span className="pl-1 text-xs">({props.rating})</span>
                         </IconContext.Provider>
+                        
                     </div>
+                    
+                </div>
+                <div className="w-auto px-4 sm:pl-10 py-4">
+                        <IconContext.Provider value={{color: "rgba(37, 190, 90, 1)", size: 23}}>
+                            <BsBookmarkDash className={bookmark? "block": "hidden"} onClick={()=>{setBookMark(false)}}></BsBookmarkDash>
+                            <BsBookmarkDashFill className={bookmark? "hidden": "block"} onClick={()=>{setBookMark(true)}}></BsBookmarkDashFill>
+                        </IconContext.Provider>
                 </div>
             </div>
         </div>
