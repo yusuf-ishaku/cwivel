@@ -37,8 +37,8 @@ export const Home = () => {
     return(
         <>
             <Navbar/>
-            <div className="w-full px-4 sm:px-10 md:px-14">
-                <div className="hero w-full py-12 flex flex-row justify-between items-center">
+            <div className="w-full px-0 sm:px-10 md:px-14">
+                <div className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-2/5 ">
                         <p className="text-lg w-4/6 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
                             Find The Perfect Artisan Best Suited For Your needs
@@ -49,7 +49,7 @@ export const Home = () => {
                         <img src={Sitting} alt="Sitting man"/>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 justify-around md:flex md:flex-row md:justify-between h-fit w-full">
+                <div className="px-4 sm:px-0 grid grid-cols-4 justify-around md:flex md:flex-row md:justify-between h-fit w-full">
                     <ArtisanSelect image = {Cleaner} craft = "Cleaner"/>
                     <ArtisanSelect image = {Mechanic} craft = "Mechanic"/>
                     <ArtisanSelect image = {Plumber} craft = "Plumber"/>
@@ -59,8 +59,8 @@ export const Home = () => {
                     <ArtisanSelect image = {Electronics} craft = "Electronics"/>
                     <ArtisanSelect image = {Cleaneragain} craft = "Cleaner"/>
                 </div>
-                <div className="flex flex-col h-fit w-full p-3 mt-16">
-                    <div className="intros flex flex-row justify-between w-full">
+                <div className="flex  flex-col h-fit w-full py-3 mt-16">
+                    <div className="intros px-4 sm:px-0 flex flex-row justify-between w-full">
                         <div className="">
                             <h1 className="text-2xl font-bold">Top Artisans in Lekki</h1>
                             <h3 className="text-gray-400 text-lg font-normal">Hire top artisans around you</h3>
@@ -69,14 +69,32 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-auto">
+                    <div className="w-full">
                             <Swiper
-                                slidesPerView={3}
-                                // centeredSlides={true}
-                                spaceBetween={30}
+                                slidesPerView={1}
+                                centeredSlides={true}
+                                spaceBetween={170}
                                 grabCursor={true}
+                                breakpoints={{
+                                    640: {
+                                      slidesPerView: 2,
+                                      spaceBetween: 200,
+                                    },
+                                    768: {
+                                      slidesPerView: 2,
+                                      spaceBetween: 80,
+                                    },
+                                    1024: {
+                                      slidesPerView: 3,
+                                      spaceBetween: 180,
+                                    },
+                                    1433:{
+                                        slidesPerView: 4,
+                                        spaceBetween: 60,
+                                    }
+                                  }}
                                 autoplay={{
-                                    delay:2500,
+                                    delay:3000,
                                     disableOnInteraction: false
                                 }}
                                 loop={true}
@@ -87,6 +105,9 @@ export const Home = () => {
                                 modules={[Autoplay]}
                                 className="mySwiper"
                             >
+                                <SwiperSlide>
+                                    <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
+                                </SwiperSlide>
                                 <SwiperSlide>
                                     <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
                                 </SwiperSlide>
