@@ -1,9 +1,17 @@
-import { Navbar } from "../assets/components/navbar";
+import React, { useState, useRef} from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+import { Navbar } from "../assets/components/navbar";
 import { ArtisanSelect } from "../assets/components/artisanSelect";
 import { ArtisanBulletins } from "../assets/components/artisanBulletins";
 import { ArtisanCards } from "../assets/components/artisanCards";
-
 import Sitting from "../assets/img/sitting.png";
 import Carpenter from "../assets/img/Carpenter.png";
 import Cleaner from "../assets/img/Cleaner.png";
@@ -61,13 +69,43 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-auto overflow-x-auto">
-                        <div className="w-fit gap-10 p-3 mb-16 flex flex-row">
-                            <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
-                            <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
-                            <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
-                            <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
-                        </div>
+                    <div className="w-auto">
+                            <Swiper
+                                slidesPerView={3}
+                                // centeredSlides={true}
+                                spaceBetween={30}
+                                grabCursor={true}
+                                autoplay={{
+                                    delay:2500,
+                                    disableOnInteraction: false
+                                }}
+                                loop={true}
+                                pagination={{
+                                    clickable: true
+                                }}
+                                // navigation={true}
+                                modules={[Autoplay]}
+                                className="mySwiper"
+                            >
+                                <SwiperSlide>
+                                    <ArtisanCards image = {SauveImage} craft = "Carpentry" artisanName = "Sauve Contractors" location = "Sauve Estate, Lekki Phase 1" rating = "4,100"/>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanCards image ={BarberImage} craft = "Barber" artisanName = "Big John Home Barbing Service" location = "No 3 Bankole Oki, Ikoyi" rating = "4,355"></ArtisanCards>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanCards image = {BarberImage} craft = "Cleaner" artisanName = "Richmore Cleaning Service" location = "Sauve Estate, Lekki Phase 1" rating = "4,355"></ArtisanCards>
+                                </SwiperSlide>
+                            </Swiper>
                     </div>
                 </div>
                 <div className="flex flex-col h-fit w-full p-3 mt-16">
