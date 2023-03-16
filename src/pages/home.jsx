@@ -139,15 +139,67 @@ export const Home = () => {
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
                         </div>
                     </div>
-                    <div className="w-auto p-10 overflow-x-auto">
-                        <div className="w-fit h-fit my-4 gap-10 flex flex-row justify-between">
-                            <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
-                            <ArtisanBulletins image = {Cleaner2} craft = "Cleaner" stName = "Pro Cleaner" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
-                            <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
-                        </div>
+                    <div className="w-full py-10">
+                    <Swiper
+                                slidesPerView={1}
+                                centeredSlides={true}
+                                spaceBetween={170}
+                                grabCursor={true}
+                                breakpoints={{
+                                    640: {
+                                      slidesPerView: 2,
+                                      spaceBetween: 200,
+                                    },
+                                    768: {
+                                      slidesPerView: 2,
+                                      spaceBetween: 80,
+                                    },
+                                    1024: {
+                                      slidesPerView: 3,
+                                      spaceBetween: 180,
+                                    },
+                                    1433:{
+                                        slidesPerView: 4,
+                                        spaceBetween: 300,
+                                    }
+                                  }}
+                                autoplay={{
+                                    delay:3000,
+                                    disableOnInteraction: false
+                                }}
+                                loop={true}
+                                pagination={{
+                                    clickable: true
+                                }}
+                                // navigation={true}
+                                modules={[Autoplay]}
+                                className="mySwiper"
+                            >
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {PChef} craft = "Private Chef" stName = "Chef and Sauce" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Cleaner2} craft = "Cleaner" stName = "Pro Cleaner" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <ArtisanBulletins image = {Eleco} craft = "Electrician" stName = "Electrician" location = "SVE, Ikoyi, Lagos State" rating = "4.8" nReview = "4,3456" dprice = "4,000" oPrice = "5,000"></ArtisanBulletins>
+                                </SwiperSlide>
+                            </Swiper>
                     </div>
                 </div>
-                <div className="w-full py-32 pb-8 h-fit flex items-center">
+                <div className="w-full px-4 py-32 pb-8 h-fit flex items-center">
                     <div className="mr-auto">
                         <h3 className="font-semibold text-2xl">Why choose us?</h3>
                         <ul className="list pt-1">

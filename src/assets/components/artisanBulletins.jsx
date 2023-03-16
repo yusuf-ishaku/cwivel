@@ -3,7 +3,7 @@ import { IconContext } from "react-icons";
 export const ArtisanBulletins = (props) =>{
     return(
         <>
-        <div className="w-[400px] h-48 mx-2 flex flex-row bg-white rounded-3xl drop-shadow-lg ">
+        <div className="w-[400px] h-48 my-10 mx-2 flex flex-row bg-white rounded-3xl drop-shadow-lg ">
             <img className="w-1/2 object-cover rounded-3xl" src={props.image} alt="Barber salon"></img>
             <div className="w-56">
                 <div className="flex flex-col justify-center p-3">
