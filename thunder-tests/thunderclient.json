@@ -1,0 +1,115 @@
+[
+  {
+    "_id": "33e64302-0dd8-48ff-bb0e-3919d9b79b2a",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "d3b0d83b-6825-4a7a-8bc9-f1cf9eee986a",
+    "name": "User Registration",
+    "url": "{{DEV_URL}}/api/register/",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2023-04-02T05:35:37.543Z",
+    "modified": "2023-04-02T05:38:09.453Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\": \"thevheed@gmail.com\",\n    \"username\": \"vheed\",\n    \"password\": \"12345678\",\n    \"password2\": \"12345678\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "ab0edbc7-3a12-4002-b18e-2aa8e84e2765",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "a7df42bc-e140-478e-9a24-bad0d00bfad9",
+    "name": "User Login",
+    "url": "{{DEV_URL}}/api/login/",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-04-02T05:43:00.248Z",
+    "modified": "2023-04-02T05:57:49.382Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"email\": \"thevheed@gmail.com\",\n    \"password\": \"12345678\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "685ef3e6-986d-447e-b8a5-984c3253a9b5",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "d3b0d83b-6825-4a7a-8bc9-f1cf9eee986a",
+    "name": "User Email Verification",
+    "url": "{{DEV_URL}}/api/verify/",
+    "method": "POST",
+    "sortNum": 40000,
+    "created": "2023-04-02T05:55:26.728Z",
+    "modified": "2023-04-02T06:05:09.035Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"example_key\": \"example_value\",\n    \"example_key2\": \"example_value\",\n    \"example_key3\": \"example_value\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3afb8b0a-2686-4036-b7c7-4f8f7cf8119d",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "4e0aca03-bc38-4240-a693-8f4a6f8fa503",
+    "name": "List Orders",
+    "url": "{{DEV_URL}}/api/service/listOrder",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-02T06:06:57.791Z",
+    "modified": "2023-04-02T06:07:06.248Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5a4e4cc8-5b06-423f-8da5-8de6be181cc9",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "4e0aca03-bc38-4240-a693-8f4a6f8fa503",
+    "name": "History",
+    "url": "{{DEV_URL}}/api/service/history",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-02T06:07:26.572Z",
+    "modified": "2023-04-02T06:07:55.754Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fdaad89f-0219-4b3e-98cf-d4a5b378a3bb",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "4e0aca03-bc38-4240-a693-8f4a6f8fa503",
+    "name": "Accept Order",
+    "url": "{{DEV_URL}}/api/service/listOrder/accept/1",
+    "method": "GET",
+    "sortNum": 80000,
+    "created": "2023-04-02T06:08:06.280Z",
+    "modified": "2023-04-02T06:08:17.384Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "777b2767-12e1-4933-9b68-62e329f94d37",
+    "colId": "bca1ebd2-54d0-4b21-8840-7fee010ba991",
+    "containerId": "4e0aca03-bc38-4240-a693-8f4a6f8fa503",
+    "name": "Reject Order",
+    "url": "{{DEV_URL}}/api/my-services/<seller_id>/",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-02T06:08:33.934Z",
+    "modified": "2023-04-02T06:08:49.801Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]
