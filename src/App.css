@@ -16,6 +16,16 @@ input::placeholder{
   .text-cwivel{
     color: rgba(37, 190, 90, 1);
   }
+  .activepage{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    border-bottom-width: 4px;
+    border-color: white;
+    color: white;
+  }
+  .leading-11{
+    line-height: 4.0rem !important;
+  }
   .border-me{
     border-width: 1px;
   }

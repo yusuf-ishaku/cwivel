@@ -39,11 +39,10 @@ export const Home = () => {
             <Navbar/>
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
-                    <div className="block h-fit w-full sm:w-2/5 ">
-                        <p className="text-lg w-4/6 sm:w-full md:text-3xl font-bold block text-cwivel leading-8">
+                    <div className="block h-fit w-full sm:w-3/5 ">
+                        <p className="text-lg w-4/6 sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
                             Find The Perfect Artisan Best Suited For Your needs
                         </p>
-                        <input type="search" name="Search" id="search" placeholder="Search for carpentar, cleaner and more" className="w-[80%] mt-7 p-3 bg-cwivel-green text-white rounded-md focus:outline-none" />
                     </div>
                     <div className="sm:block hidden sm:w-auto pl-6">
                         <img src={Sitting} alt="Sitting man"/>
@@ -74,7 +73,7 @@ export const Home = () => {
                                 slidesPerView={1}
                                 centeredSlides={true}
                                 spaceBetween={170}
-                                grabCursor={true}
+                                grabCursor={false}
                                 breakpoints={{
                                     640: {
                                       slidesPerView: 2,
@@ -95,7 +94,7 @@ export const Home = () => {
                                   }}
                                 autoplay={{
                                     delay:3000,
-                                    disableOnInteraction: false
+                                    disableOnInteraction: true
                                 }}
                                 loop={true}
                                 pagination={{
@@ -144,7 +143,7 @@ export const Home = () => {
                                 slidesPerView={1}
                                 centeredSlides={true}
                                 spaceBetween={170}
-                                grabCursor={true}
+                                grabCursor={false}
                                 breakpoints={{
                                     640: {
                                       slidesPerView: 2,
@@ -165,7 +164,7 @@ export const Home = () => {
                                   }}
                                 autoplay={{
                                     delay:3000,
-                                    disableOnInteraction: false
+                                    disableOnInteraction: true
                                 }}
                                 loop={true}
                                 pagination={{
