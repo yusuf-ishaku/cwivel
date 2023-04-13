@@ -31,14 +31,18 @@ import Spiral2 from "../assets/img/spiral.png";
 import PChef from "../assets/img/chef (1).png";
 import Eleco from "../assets/img/eleco.png";
 import Cleaner2 from "../assets/img/cleaner2.png";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
 import Group from "../assets/img/Group.png"
 export const Home = () => {
+    AOS.init();
     return(
         <>
             <Navbar/>
             <div className="w-full px-0 sm:px-10 md:px-14">
-                <div className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
+                <div  data-aos="fade-down" data-aos-easing="linear"
+                        data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-3/5 ">
                         <p className="text-lg w-4/6 sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
                             Find The Perfect Artisan Best Suited For Your needs
