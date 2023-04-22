@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-export const Navbar = () => {
+export const Navbar = (props) => {
     return(
         <div className="w-full bg-cwivel-green px-4 md:px-14 flex py-4 flex-row justify-between items-center">
             <div className="text-cwivel m-1 px-6 text-xs sm:text-lg block p-2">Cwivel</div>
@@ -10,7 +10,7 @@ export const Navbar = () => {
                     <Link to="/bookings" className="text-xs lg:mr-6 text-gray-200 sm:text-base block p-2">Explore</Link>
                     <Link to="/users" className="text-xs text-gray-200 sm:text-base block p-2">Blogs</Link>
                 </div>
-                <div className="w-fit flex items-center ml-auto">
+                <div className={props.cl ? "w-fit flex items-center ml-auto" : "w-fit hidden items-center ml-auto"}>
                     <Link to="/login" className="text-xs sm:text-lg text-white p-2">Login</Link>
                     <Link to="/signup">
                         <button className="text-xs sm:text-lg w-32 bg-white rounded-md text-cwivel p-1 md:px-3 md:w-24 mx-2">

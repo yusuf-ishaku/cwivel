@@ -11,12 +11,14 @@ import { Login } from './pages/login';
 import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
 import { ArtisanSignUp } from './pages/artisansignup';
+import { ComingSoon } from './assets/components/comingSoon';
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element = {<Home/>}/>
+          <Route path='/' element={<ComingSoon></ComingSoon>}></Route>
+          <Route path='/home' element = {<Home/>}/>
           <Route path='/chat' element = {<Chat/>}></Route>
           <Route path='/dashboard' element ={<Dashboard/>}></Route>
           <Route path='/users' element ={<Users/>}/>

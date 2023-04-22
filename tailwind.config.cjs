@@ -15,7 +15,8 @@ module.exports = {
     "./src/pages/artisansignup.jsx",
     "./src/assets/components/artisanSelect.jsx",
     "./src/assets/components/artisanCards.jsx",
-    "./src/assets/components/artisanBulletins.jsx"
+    "./src/assets/components/artisanBulletins.jsx",
+    "./src/assets/components/comingSoon.jsx"
   ],
   theme: {
     extend: {},

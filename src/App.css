@@ -10,6 +10,14 @@ input::placeholder{
   color: white;
 }
 @layer utilities{
+  @font-face {
+    font-family: 'Digital Numbers';
+    src: url("./assets/digital-numbers-cufonfonts/DigitalNumbers-Regular.ttf");
+  }
+  .font-face-digi{
+    font-family: 'Digital Numbers';
+    color: rgb(115, 115, 255);
+  }
   .bg-cwivel-green{
     background-color: rgba(37, 190, 90, 1);
   }
