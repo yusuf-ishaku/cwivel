@@ -5,7 +5,7 @@ import { IconContext } from "react-icons";
 import Countdown from 'react-countdown';
 
 export const ComingSoon = () => {
-    let date = new Date('August 31, 2023').getTime();
+    let date = new Date('August 1, 2023').getTime();
     const renderer = ({days, hours, minutes, seconds, completed }) => {
         if (completed) {
           // Render a completed state
