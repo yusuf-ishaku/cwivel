@@ -1,62 +1,70 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import  Axios from "axios";
+import { Users } from "./users";
 export const ArtisanSignUp = () =>{
     const [type, setType] = useState("text");
-    let milo = true;
-    let nextPage = () =>{
-        let pro = document.querySelector(".sl");
-        let con = document.querySelector('.tl');
-        con.classList.remove("hidden");
-        con.classList.add("block");
-        con.classList.add("w-full")
-        pro.classList.add("hidden")
-    }
-    let backPage = () =>{
-        let pro = document.querySelector(".sl");
-        let con = document.querySelector('.tl');
-        con.classList.add("hidden");
-        pro.classList.remove("hidden")
+    const [initCountry, setInitCountry] = useState("Nigeria")
+    const {data} = useQuery(["countries"], () =>{
+        return Axios.get("https://restcountries.com/v3.1/all").then((res) => res.data);
+    })
+    const pickCountry = (e) =>{
+        setInitCountry(e)
     }
     return(
         <>
-            <div className="w-[100vw] h-full flex flex-col">
-                <div className="flex h-10">Cwivel</div>
-                <div className="w-full text-center h-10">
-                    <span className="text-cwivel sm:text-md:text-sm font-semibold">
-                        Create Account
-                    </span>
-                    <form className="w-full">
-                        <div className="w-full flex px-10 sm:mt-6">
-                            <div className="w-full sl sm:w-1/2">
-                                <input type="text" name="fname" placeholder="Full name" className="w-[60%] border-gray-300 p-6 my-5 h-10 rounded-md mx-10 border-me placeholder-gray-400 focus:outline-none" required/>
-                                <input type="text" name="lname" placeholder="Username" className="w-[60%] border-gray-300 p-6 my-5 h-10  rounded-md mx-10 border-me placeholder-gray-400 focus:outline-none" required/>
-                                <input type = {type} name="date" onFocus={() =>{setType("date")}} onBlur= {() =>{setType("text");}} placeholder="Date of Birth" id='date' className='my-5 placeholder-gray-400 focus:outline-none p-6 text-gray-400 text-sm border-gray-300 rounded-md border-me w-[60%] h-10' required />
-                                <IconContext.Provider value={{ size: "20", className: "text-gray-400" }}>
-                                    <div className="flex flex-row items-center justify-center w-[100%]">
-                                        <input type="email" name="email" placeholder='Email' id='email' className='my-5 placeholder-gray-400 p-6 text-gray-400 text-sm -ml-5 border-gray-300 rounded-md border-me w-[60%] h-10 focus:outline-none' required />
-                                        <AiOutlineMail className='-ml-10'></AiOutlineMail>
-                                    </div>
-                                </IconContext.Provider>
-                                <input type = "address" name="address" placeholder='Address' id='address' className='my-5 placeholder-gray-400 p-6 text-gray-400 text-sm border-gray-300 rounded-md border-me w-[60%] h-10 focus:outline-none' required />
-                                <div className="flex sm:hidden w-[70%] mx-20 sm:w-[60%] sm:mx-10 items-center">
-                                    <Link to="/signup" className="block"><span className="block text-cwivel">Back</span></Link>
-                                    <button onClick={nextPage} className='text-white bg-cwivel-green p-2 px-5 ml-auto rounded-md z-50' >Next</button>
-                                </div>
-                            </div>
-                            <div className="sm:w-1/2 tl sm:flex flex-col hidden" >
-                                <input type="text" name="service" placeholder="Services offered" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
-                                <input type="text" name="service" placeholder="" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
-                                <textarea type="text" name="bio" placeholder="Bio" rows="10" cols="50" className="w-[60%] mx-10 rounded-md p-3 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
-                                <input type="text" name="em" placeholder="" className="w-[60%] mx-10 rounded-md p-6 my-5 h-10 border-me border-gray-300 placeholder-gray-400 focus:outline-none" required/>
-                                <div className="flex w-[70%] mx-20 sm:w-[60%] sm:mx-10 items-center">
-                                    <Link to="/signup" className="hidden sm:block"><span className="block text-cwivel">Back</span></Link>
-                                    <span className="block text-cwivel sm:hidden" onClick={backPage}>Back</span>
-                                    <button type='submit' className='text-white bg-cwivel-green p-2 px-5 ml-auto rounded-md z-50' >Continue</button>
-                                </div>
+            <div className="w-[100vw] h-full flex flex-col p-8">
+                <div className="flex items-center justify-center h-10">
+                    <h2>
+                        Cwivel
+                    </h2>
+                </div>
+                <div className="w-full flex flex-col items-center text-center h-10">
+                    <h2 className="text-cwivel sm:text-sm md:text-2xl font-semibold">
+                        Partner with us today and grow your business!
+                    </h2>
+                    <h3 className="mt-2 text-gray-600 text-base">
+                        Fill the form to get started!
+                    </h3>
+                    <form className="w-[75%]  mt-8 text-left">
+                        <div className="flex flex-col">
+                            <label htmlFor="email" className="my-2 ml-2">
+                                Email
+                            </label>
+                            <input placeholder="example@gmail.com"  type="email" className="focus:outline-none p-2 placeholder-gray-500 rounded-md border-[1px]" required></input>
+                        </div>
+                        <div className="flex flex-col">
+                            <label htmlFor="email" className="my-2 ml-2">
+                                Type of Business
+                            </label>
+                            <select className="border-[1px] focus:outline-none border-gray-200 p-2 rounded-md" id="cars" name="cars">
+                                <option className="border-[1px]" value="volvo">Cleaner</option>
+                                <option value="saab"></option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        <div className="flex flex-col">
+                            <label htmlFor="email" className="my-2 ml-2">
+                               Select Country
+                            </label>
+                            <input className="border-[1px] focus:outline-none border-gray-200 p-2 rounded-md" type="text"  defaultValue={initCountry} readOnly={false}></input>
+                            <div className="h-[10rem] overflow-y-scroll border-[1px]">
+                                <ul className="list-none ">
+                                    {
+                                        data?.map(element =>{
+                                            return(
+                                                <li onClick={() =>{pickCountry(element.name.official);}} className={"border-b-[1px] list-none p-2"}>{element.name.official}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

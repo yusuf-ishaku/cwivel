@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link  } from 'react-router-dom';
+import { QueryClient, QueryClientProvider} from "react-query";
 import { Navbar } from './assets/components/navbar';
 import { Home } from "./pages/home"
 import { Dashboard } from './pages/dashboard';
@@ -12,24 +13,29 @@ import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
 import { ArtisanSignUp } from './pages/artisansignup';
 import { ComingSoon } from './assets/components/comingSoon';
+
 function App() {
+  const user = new QueryClient();
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path='/' element={<ComingSoon></ComingSoon>}></Route>
-          <Route path='/home' element = {<Home/>}/>
-          <Route path='/chat' element = {<Chat/>}></Route>
-          <Route path='/dashboard' element ={<Dashboard/>}></Route>
-          <Route path='/users' element ={<Users/>}/>
-          <Route path='/bookings' element = {<Bookings/>}/>
-          <Route path='/login' element = {<Login></Login>}></Route>
-          <Route path='/signup' element = {<Signup></Signup>}></Route>
-          <Route path='/signupuser' element = {<SignUpUser></SignUpUser>}></Route>
-          <Route path='/artisansignup' element = {<ArtisanSignUp></ArtisanSignUp>}></Route>
-          <Route path='*' element = {<h2>Page not found</h2>}/>
-        </Routes>
-      </Router>
+      <QueryClientProvider client={user}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<ComingSoon></ComingSoon>}></Route>
+            <Route path='/home' element = {<Home/>}/>
+            <Route path='/chat' element = {<Chat/>}></Route>
+            <Route path='/dashboard' element ={<Dashboard/>}></Route>
+            <Route path='/users' element ={<Users/>}/>
+            <Route path='/bookings' element = {<Bookings/>}/>
+            <Route path='/login' element = {<Login></Login>}></Route>
+            <Route path='/signup' element = {<Signup></Signup>}></Route>
+            <Route path='/signupuser' element = {<SignUpUser></SignUpUser>}></Route>
+            <Route path='/artisansignup' element = {<ArtisanSignUp></ArtisanSignUp>}></Route>
+            <Route path='*' element = {<h2>Page not found</h2>}/>
+          </Routes>
+        </Router>
+      </QueryClientProvider>
+   
     </div>
   )
 }

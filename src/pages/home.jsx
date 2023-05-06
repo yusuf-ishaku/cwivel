@@ -39,7 +39,7 @@ export const Home = () => {
     AOS.init();
     return(
         <>
-            <Navbar/>
+            <Navbar cl={true}/>
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div  data-aos="fade-down" data-aos-easing="linear"
                         data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">

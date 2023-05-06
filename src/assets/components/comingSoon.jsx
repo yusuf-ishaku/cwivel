@@ -1,5 +1,6 @@
 import { Navbar } from "./navbar";
-import { SiFacebook, SiInstagram, SiTwitter, SiYoutube } from 'react-icons/si'
+import { SiFacebook, SiInstagram, SiTwitter, SiYoutube,  } from 'react-icons/si';
+import { RiLinkedinFill } from 'react-icons/ri';
 import Sitting from "/src/assets/img/sitting.png"
 import { IconContext } from "react-icons";
 import Countdown from 'react-countdown';
@@ -9,7 +10,7 @@ export const ComingSoon = () => {
     const renderer = ({days, hours, minutes, seconds, completed }) => {
         if (completed) {
           // Render a completed state
-          return <span>Hurrayh</span>;
+          return <span>Hurray</span>;
         } else {
           // Render a countdown
             return (<div className="flex flex-row justify-between mt-10 w-full sm:w-4/5 font-face-digi">
@@ -49,20 +50,22 @@ export const ComingSoon = () => {
 
                         </Countdown>
                         <div className="flex flex-row items-center mt-6">
-                            <input placeholder="Enter your email" className="p-2 rounded-l-sm h-10 placeholder-gray-700  border-2 w-[450px]" type="email" name="Email" id="email" />
+                            <input  placeholder="Enter your email" className="focus:outline-none p-2 rounded-l-sm h-10 placeholder-gray-700  border-2 w-[450px]" type="email" name="Email" id="email" />
                             <button className="bg-gray-600 w-32 rounded-r-sm p-[0.55rem] text-white text-sm">Submit</button>
                         </div>
                         <div className="flex flex-row items-center mt-1 p-3">
                             <IconContext.Provider value={{color: 'rgb(115, 115, 255)', size: '24px'}}>
-                                <span className="mr-5">
+                                <span className="mr-5 cursor-pointer">
                                     <SiFacebook></SiFacebook>
                                 </span>
-                                <span className="mr-5">  <SiTwitter></SiTwitter></span>
-                                <span className="mr-5"> <SiInstagram></SiInstagram></span>
+                                <span className="mr-5 cursor-pointer">  <SiTwitter></SiTwitter></span>
+                                <span className="mr-5 cursor-pointer"> <SiInstagram></SiInstagram></span>
                                
                             </IconContext.Provider>
-                            <IconContext.Provider value={{color: 'red', size: '24px'}}>
-                                <SiYoutube></SiYoutube>
+                            <IconContext.Provider value={{color: 'rgb(115, 115, 255)', size: '24px'}}>
+                               <span className="cursor-pointer">
+                                    <RiLinkedinFill></RiLinkedinFill>
+                                </span> 
                             </IconContext.Provider>
                         </div>
                     </div>
