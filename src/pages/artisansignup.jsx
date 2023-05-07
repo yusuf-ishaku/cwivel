@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AiOutlineMail } from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
@@ -7,12 +7,20 @@ import  Axios from "axios";
 import { Users } from "./users";
 export const ArtisanSignUp = () =>{
     const [type, setType] = useState("text");
+    // const [searchParam] = useState(["capital", "name"]);
+    const liner = useRef();
     const [initCountry, setInitCountry] = useState("Nigeria")
     const {data} = useQuery(["countries"], () =>{
         return Axios.get("https://restcountries.com/v3.1/all").then((res) => res.data);
     })
     const pickCountry = (e) =>{
         setInitCountry(e)
+    }
+    const dropDownCountry =() =>{
+       liner.current.classList.remove("hidden")
+    }
+    const findCountry = () =>{
+        // set the data to filter the content of the original data field here
     }
     return(
         <>
@@ -51,10 +59,10 @@ export const ArtisanSignUp = () =>{
                             <label htmlFor="email" className="my-2 ml-2">
                                Select Country
                             </label>
-                            <input className="border-[1px] focus:outline-none border-gray-200 p-2 rounded-md" type="text"  defaultValue={initCountry} readOnly={false}></input>
-                            <div className="h-[10rem] overflow-y-scroll border-[1px]">
+                            <input onFocus={dropDownCountry} onChange={findCountry} className="border-[1px] focus:outline-none border-gray-200 p-2 rounded-md" type="text"  defaultValue={initCountry} readOnly={false}></input>
+                            <div ref={liner} className="h-[10rem] hidden overflow-y-scroll border-[1px]">
                                 <ul className="list-none ">
-                                    {
+                                    { //set a variable detector that will check if the value of the "Nigeria" tagged element is empty or not, if not, search, if it is, map the elements available
                                         data?.map(element =>{
                                             return(
                                                 <li onClick={() =>{pickCountry(element.name.official);}} className={"border-b-[1px] list-none p-2"}>{element.name.official}</li>
