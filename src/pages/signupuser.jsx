@@ -5,13 +5,27 @@ import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
 import SignUpUserTab from "../assets/img/SignUpImageTab.png"
 import {AiOutlineMail} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
+import {useForm} from "react-hook-form";
+import * as yup from "yup";
+import Axios from 'axios'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
-import SignUpUserLineTab from '../assets/img/SignUpLineTab.png'
+import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
+
 export const SignUpUser  = () =>{
-    // const [type, setType] = useState("text");
-    // console.log(type);
+    Axios.create()
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
+    const {register, handleSubmit} = useForm();
+    const schema = yup.object().shape({
+        userName: yup.string().required(),
+        email: yup.string().email().required(),
+        password: yup.string().min(4).max(18).required(),
+        confirmPassword: yup.string().oneOf([yup.ref("password"), null]).required() 
+
+    })
+    const submitData = (data) =>{
+        console.log(data);
+    }
     return (
         <>
          <div className='w-[100vw] h-full flex flex-col items-center sm:items-start sm:flex sm:flex-row'>
@@ -21,27 +35,27 @@ export const SignUpUser  = () =>{
             <div className='w-[90%] sm:w-5/12 pt-10 sm:px-0 h-[100vh] text-auto z-50'>
                 <h2 className='text-cwivel text-left w-full font-semibold mb-2 text-md md:text-lg'>Create Account</h2>
                 <h4 className='text-gray-500 text-base'>Please enter your details to continue</h4>
-                <form className='flex flex-col items-start justify-center mt-5'>
+                <form onSubmit={handleSubmit(submitData)} className='flex flex-col items-start justify-center mt-5'>
                     <label htmlFor='username' className='mb-2 text-gray-800'>Username</label>
-                    <input type="text" placeholder='User Name' name='username' id='uname' className='mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10' required/>
+                    <input type="text" placeholder='User Name' name='username' id='uname' {...register("userName")} className='mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10' required/>
                     <IconContext.Provider value={{ size: "20", className: "text-gray-400" }}>
                         <label htmlFor="email" className='mb-2 text-gray-800'>Email</label>
                         <div className="flex flex-row items-center justify-center w-[90%]">
-                            <input type = "email" placeholder='sample@gmail.com' id='email' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
+                            <input type = "email" {...register("email")} placeholder='sample@gmail.com' id='email' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
                             <AiOutlineMail style={{marginBottom:'17'}} className='-ml-10'></AiOutlineMail>
                         </div>
                     </IconContext.Provider>
                     <IconContext.Provider value={{ size: "20", className: "text-gray-400" }}>
                         <label htmlFor="password" className='mb-2 text-gray-800'>Password</label>
                         <div className="flex flex-row items-center justify-end  w-[90%]">
-                            <input type = {eyeopen ? "text" : "password"} placeholder='**********' id='password' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm ml-0 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
+                            <input type = {eyeopen ? "text" : "password"} {...register("password")} placeholder='**********' id='password' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm ml-0 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
                             {eyeopen ? <AiFillEye onClick={()=>setEyeOpen(false)} style={{position: 'absolute',cursor: 'pointer', marginRight: '17', marginBottom: '17'}} ></AiFillEye> : <AiFillEyeInvisible onClick={() => setEyeOpen(true)} style={{position: 'absolute', marginRight: '17', marginBottom: '17'}} ></AiFillEyeInvisible>}
                         </div>
                     </IconContext.Provider>
                     <IconContext.Provider value={{ size: "20", className: "text-gray-400" }}>
                     <label htmlFor="confirm password" className='mb-2 text-gray-800'>Confirm Password</label>
                         <div className="flex flex-row items-center justify-end w-[90%]">
-                            <input type = {eyeopen2 ? "text": "password"} placeholder='**********' id='confirmpassword' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
+                            <input type = {eyeopen2 ? "text": "password"} {...register("confirmPassword")} placeholder='**********' id='confirmpassword' className='mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10'required/>
                             {eyeopen2 ? <AiFillEye onClick={()=>setEyeOpen2(false)} style={{cursor: 'pointer',marginRight: '17', marginBottom: '17', position: 'absolute'}}></AiFillEye> : <AiFillEyeInvisible onClick={() => setEyeOpen2(true)} style={{cursor: 'pointer',position:'absolute', marginRight: '17', marginBottom: '17'}}></AiFillEyeInvisible>}
                         </div>
                     </IconContext.Provider>            
