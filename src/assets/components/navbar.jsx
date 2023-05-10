@@ -8,7 +8,7 @@ export const Navbar = (props) => {
                 <div className="w-fit flex flex-row items-center ml-auto">
                     <Link to="/"  className="text-xs activepage lg:mr-6 font-medium sm:text-xl block sm:p-2">Home</Link>
                     <Link to="/bookings" className={props.cl ? " text-xs lg:mr-6 text-gray-200 sm:text-base block p-2" : "hidden text-xs lg:mr-6 text-gray-200 sm:text-base p-2"}>Explore</Link>
-                    <Link to="/users" className="text-xs text-gray-200 sm:text-base block p-2">Explore</Link>
+                    <Link to="/signupuser" className="text-xs text-gray-200 sm:text-base block p-2">Explore</Link>
                 </div>
                 <div className={props.cl ? "w-fit flex items-center ml-auto" : "w-fit hidden items-center ml-auto"}>
                     <Link to="/login" className="text-xs sm:text-lg text-white p-2">Login</Link>

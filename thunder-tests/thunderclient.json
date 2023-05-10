@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-04-02T05:35:37.543Z",
-    "modified": "2023-04-19T16:01:26.849Z",
+    "modified": "2023-05-10T13:42:05.046Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"type\": \"regular\",\n    \"email\": \"david@gmail.com\",\n    \"first_name\": \"David\",\n    \"last_name\": \"VHEED\",\n    \"username\": \"vheed\",\n    \"password\": \"12345678\",\n    \"password2\": \"12345678\"\n}",
+      "raw": "{\n    \"type\": \"regular\",\n    \"email\": \"david@gmail.com\",\n    \"first_name\": \"David\",\n    \"last_name\": \"VHEED\",\n    \"username\": \"heed\",\n    \"password\": \"12345678\",\n    \"password2\": \"12345678\"\n}",
       "form": []
     },
     "tests": []

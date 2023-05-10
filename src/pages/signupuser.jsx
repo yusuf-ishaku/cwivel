@@ -10,9 +10,11 @@ import * as yup from "yup";
 import Axios from 'axios'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
-
+const client = Axios.create({
+    baseURL: "http://cwivel.pythonanywhere.com"
+})
 export const SignUpUser  = () =>{
-    Axios.create()
+    // Axios.create()
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
     const {register, handleSubmit} = useForm();
@@ -25,6 +27,8 @@ export const SignUpUser  = () =>{
     })
     const submitData = (data) =>{
         console.log(data);
+        let newUser = JSON.stringify({ type: "regular", email: data.email, username: data.username, password: data.password, confirmPassword: data.confirmPassword });
+        client.post("/auth/register/", newUser).then((res) => console.log(res.data)).catch((err) => console.error(err))
     }
     return (
         <>
