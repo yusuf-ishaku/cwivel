@@ -13,22 +13,23 @@ export const ComingSoon = () => {
           return <span>Hurray</span>;
         } else {
           // Render a countdown
-            return (<div className="flex flex-row justify-between mt-10 w-full sm:w-4/5 font-face-digi">
+            return (
+            <div className="flex flex-row items-center justify-between mt-10 w-full sm:w-4/5 font-face-digi">
                 <div className="flex-col flex items-center p-1">
-                    <div className="bg-gray-200 text-3xl w-20 sm:w-32 h-20 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{days}</div>
-                    <span>Days</span>
+                    <div className="bg-gray-200 text-3xl w-16 sm:w-32 h-16 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{days}</div>
+                    <span className="text-sm">Days</span>
                 </div>
                 <div className="flex-col flex items-center p-1">
-                    <div className="bg-gray-200 text-3xl w-20 sm:w-32 h-20 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{hours}</div>
-                    <span>Hours</span>
+                    <div className="bg-gray-200 text-3xl w-16 sm:w-32 h-16 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{hours}</div>
+                    <span className="text-sm">Hours</span>
                 </div>
                 <div className="flex-col flex items-center p-1">
-                    <div className="bg-gray-200 text-3xl w-20 sm:w-32 h-20 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{minutes}</div>
-                    <span>Minutes</span>
+                    <div className="bg-gray-200 text-3xl w-16 sm:w-32 h-16 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{minutes}</div>
+                    <span className="text-sm">Minutes</span>
                 </div>
                 <div className="flex-col flex items-center p-1">
-                    <div className="bg-gray-200 text-3xl w-20 sm:w-32 h-20 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{seconds}</div>
-                    <span>Seconds</span>
+                    <div className="bg-gray-200 text-3xl w-16 sm:w-32 h-16 sm:h-32 flex sm:text-6xl flex-row items-center justify-center text-gray-600">{seconds}</div>
+                    <span className="text-sm">Seconds</span>
                 </div>
             </div>);
         }
