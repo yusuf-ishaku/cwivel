@@ -27,7 +27,7 @@ export const SignUpUser  = () =>{
         console.log(data);
 
         try{
-            const response = await Axios.post("http://cwivel.pythonanywhere.com/auth/send-otp/", { email: data.email });
+            const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: data.email });
             console.log(response?.data);
         } catch (err){
             console.error(err.response?.data)
