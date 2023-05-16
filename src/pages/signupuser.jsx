@@ -10,9 +10,7 @@ import * as yup from "yup";
 import Axios from 'axios'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
-const client = Axios.create({
-    baseURL: "https://cwivel.pythonanywhere.com/"
-})
+
 export const SignUpUser  = () =>{
     // Axios.create()
     const [eyeopen, setEyeOpen] = useState(false);
@@ -25,10 +23,15 @@ export const SignUpUser  = () =>{
         confirmPassword: yup.string().oneOf([yup.ref("password"), null]).required() 
 
     })
-    const submitData = (data) =>{
+    const submitData =  async (data) =>{
         console.log(data);
 
-        client.post("/auth/register/", JSON.stringify({ type: "regular", first_name: "Fortune", last_name: "Ishaku", email: data.email, username: data.username, password: data.password, password2: data.confirmPassword })).then((response) => console.log(response.data)).catch((error) => console.error(error))
+        try{
+            const response = await Axios.post("http://cwivel.pythonanywhere.com/auth/send-otp/", JSON.stringify({ email: data.email }));
+            console.log(response?.data);
+        } catch (err){
+            console.error(err.response?.data)
+        }
     };
     return (
         <>
