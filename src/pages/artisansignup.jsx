@@ -102,6 +102,8 @@ export const ArtisanSignUp = () =>{
                                     <ul className="list-none ">
                                         { //set a variable detector that will check if the value of the "Nigeria" tagged element is empty or not, if not, search, if it is, map the elements available
                                             // initCountry.length === 0?
+                                            
+                                            
                                             countryList.map((element, x) =>{
                                                 return(
                                                     <li onClick={(e) =>pickCountry(element.name.common)} className={"border-b-[1px] cursor-pointer list-none p-2"}>{element.name.common}</li>
