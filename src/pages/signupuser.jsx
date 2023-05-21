@@ -112,7 +112,7 @@ export const SignUpUser  = () =>{
             <h2 className="text-cwivel text-left w-full font-semibold mb-2 text-md md:text-lg">
               Create Account
             </h2>
-            <h4 className="text-gray-500 text-base">
+            <h4 className="text-gray-500 text-base mb-5">
               {emailState
                 ? `Let\'s verify your email`
                 : `Let's get your details`}
@@ -128,10 +128,10 @@ export const SignUpUser  = () =>{
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="email" className="mb-2 ml-6 text-gray-800">
+                <label htmlFor="email" className="mb-2 text-gray-800">
                   Email
                 </label>
-                <div className="flex mx-auto flex-row items-center justify-center w-[90%]">
+                <div className="flex  flex-row items-center justify-center w-[90%]">
                   <input
                     type="email"
                     {...register("email")}
@@ -157,7 +157,7 @@ export const SignUpUser  = () =>{
                     <input  className='w-8 rounded-md text-center p-2 border-[1px] mx-2'  inputMode="decimal" {...digits[3]} />
                 </div>
               </div>
-              <div className="flex flex-col w-[90%] mx-auto items-center">
+              <div className="flex flex-col w-[90%] items-center">
                 <button
                   
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
@@ -178,7 +178,7 @@ export const SignUpUser  = () =>{
               </div>
             </form>
             <form onSubmit={handleSubmit(submitData)} className={emailState ? "hidden" : "block"}>
-              <label htmlFor="username" className="mb-2 ml-6 text-gray-800">
+              <label htmlFor="username" className="mb-2 text-gray-800">
                 Username
               </label>
               <input
@@ -187,42 +187,41 @@ export const SignUpUser  = () =>{
                 name="username"
                 id="username"
                 {...register("username")}
-                className="mb-3  mx-auto placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
+                className="mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
               />
               <span className="ml-6 text-base text-red-600">{errors.username?.message  }</span>
               <label
                   htmlFor="first_name"
-                  className="mb-2 ml-6 text-gray-800"
+                  className="mb-2 ml-1 text-gray-800"
                 >
                   First Name
                 </label>
-                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
+                <div className="flex flex-row items-center justify-end w-[90%]">
                   <input
                     type= "text"
                     name= 'first_name'
                     {...register("first_name")}
-                    placeholder="**********"
+                    placeholder="First Name"
                     id="first_name"
-                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
+                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
-                  <span className="ml-6 text-base text-red-600">{errors.first_name?.message  }</span>
                 </div>
                 <label
                   htmlFor="confirm password"
-                  className="mb-2 ml-6 text-gray-800"
+                  className="mb-2 text-gray-800"
                 >
                   Last Name
                 </label>
-                <div className="flex flex-col items-center justify-end mx-auto w-[90%]">
+                <div className="flex flex-col items-center justify-end w-[90%]">
                   <input
                     type= "text"
                     name='last_name'
                     {...register("last_name")}
-                    placeholder="**********"
+                    placeholder="Last Name"
                     id="last_name"
-                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
+                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm  border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
                   <span className="ml-6 text-base text-red-600">{errors.last_name?.message  }</span>
@@ -230,10 +229,10 @@ export const SignUpUser  = () =>{
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="password" className="mb-2 ml-6 text-gray-800">
+                <label htmlFor="password" className="mb-2text-gray-800">
                   Password
                 </label>
-                <div className="flex flex-row items-center justify-end mx-auto  w-[90%]">
+                <div className="flex flex-row items-center justify-end  w-[90%]">
                   <input
                     type={eyeopen ? "text" : "password"}
                     {...register("password")}
@@ -271,11 +270,11 @@ export const SignUpUser  = () =>{
               >
                 <label
                   htmlFor="password2"
-                  className="mb-2 ml-6 text-gray-800"
+                  className="mb-2 text-gray-800"
                 >
                   Confirm Password
                 </label>
-                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
+                <div className="flex flex-row items-center justify-end w-[90%]">
                   <input
                     type={eyeopen2 ? "text" : "password"}
                     {...register("password2")}
@@ -309,7 +308,7 @@ export const SignUpUser  = () =>{
                 </div>
               </IconContext.Provider>
               <span className="ml-6 text-base text-red-600">{errors.password2?.message  }</span>
-              <div className="flex flex-col w-[90%] items-center mx-auto">
+              <div className="flex flex-col w-[90%] items-center">
                 <button
                   type="submit"
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
