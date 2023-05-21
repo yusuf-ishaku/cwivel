@@ -131,12 +131,37 @@ export const SignUpUser  = () =>{
           try{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
             console.log(response?.data)
-            if(response?.data.response === "Registration Successful"){
+            if(response?.data.response === "Registration "){
                 navigate('/dashboard');
             }
             
         } catch (err){
-            console.error(err.response?.data)
+          console.error(err)
+            if(err.response?.data.username[0] === "user with this username already exists."){
+              setErrorAvailable(true);
+              setTheErrorMessage("User with this username already exists. Please log in!");
+              setSi(true);
+              setInterval(()=>{
+                setErrorAvailable(false);
+                setTheErrorMessage("");
+              }, 4000);
+            }else if(err.code === "ERR_NETWORK"){
+              setErrorAvailable(true);
+              setTheErrorMessage(`${err.message}: Please check your internet connection`);
+              // setSi(true);
+              setInterval(()=>{
+                setErrorAvailable(false);
+                setTheErrorMessage("");
+              }, 4000);
+            }else{
+              setErrorAvailable(true);
+              setTheErrorMessage(`Please confirm that all inputs are valid before submitting`);
+              // setSi(true);
+              setInterval(()=>{
+                setErrorAvailable(false);
+                setTheErrorMessage("");
+              }, 4000);
+            }
         }
         }
        
