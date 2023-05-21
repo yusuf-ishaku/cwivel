@@ -185,7 +185,7 @@ export const SignUpUser  = () =>{
                 type="text"
                 placeholder="User Name"
                 name="username"
-                id="uname"
+                id="username"
                 {...register("username")}
                 className="mb-3  mx-auto placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
@@ -200,6 +200,7 @@ export const SignUpUser  = () =>{
                 <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
                   <input
                     type= "text"
+                    name= 'first_name'
                     {...register("first_name")}
                     placeholder="**********"
                     id="first_name"
@@ -217,6 +218,7 @@ export const SignUpUser  = () =>{
                 <div className="flex flex-col items-center justify-end mx-auto w-[90%]">
                   <input
                     type= "text"
+                    name='last_name'
                     {...register("last_name")}
                     placeholder="**********"
                     id="last_name"
@@ -235,6 +237,7 @@ export const SignUpUser  = () =>{
                   <input
                     type={eyeopen ? "text" : "password"}
                     {...register("password")}
+                    name='password'
                     placeholder="**********"
                     id="password"
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm ml-0 border-gray-300 rounded-md border-me w-[100%] h-10"
@@ -277,6 +280,7 @@ export const SignUpUser  = () =>{
                     type={eyeopen2 ? "text" : "password"}
                     {...register("password2")}
                     placeholder="**********"
+                    name='password2'
                     id="confirmpassword"
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
