@@ -40,17 +40,14 @@ export const SignUpUser  = () =>{
     
     const schema = yup.object().shape({
         username: yup.string().required("Your username is a required field!"),
-       
         first_name: yup.string().required("First name is required"),
         last_name: yup.string().required("Last name is required"),
         password: yup.string().min(4).max(8).required("Password must be more than 4 characters "),
         password2: yup.string().oneOf([yup.ref("password"), null]).required("passwords don't match") 
 
     });
-    const {register, handleSubmit} = useForm({
-        resolver: yupResolver(schema) ,
-    });
-    const {registerEmail, handleEmSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit} = useForm();
+
     const submitData =  async (data) =>{
         setSi(false)
         console.log(data);
@@ -115,6 +112,10 @@ export const SignUpUser  = () =>{
                   }
                 } catch (err) {
                   console.error(err);
+                  if(err.code === "BAD_REQUEST"){
+                    setErrorAvailable(true);
+                    setTheErrorMessage("This OTP is invalid");
+                  }
                 }
             }
            
@@ -130,7 +131,7 @@ export const SignUpUser  = () =>{
           try{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
             console.log(response?.data)
-            if(response?.data.status === true){
+            if(response?.data.response === "Registration Successful"){
                 navigate('/dashboard');
             }
             
@@ -174,7 +175,7 @@ export const SignUpUser  = () =>{
                 <div className="flex  flex-row items-center justify-center w-[90%]">
                   <input
                     type="email"
-                    {...register("email")}
+                    
                     placeholder="sample@gmail.com"
                     id="email"
                     onChange={(e)=>setEmailInState(e.target.value)}
@@ -271,7 +272,7 @@ export const SignUpUser  = () =>{
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm  border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
-                  <span className="ml-6 text-base text-red-600">{errors.last_name?.message  }</span>
+                  <span className="ml-6 text-base text-red-600">{""}</span>
                 </div>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -310,7 +311,7 @@ export const SignUpUser  = () =>{
                     ></AiFillEyeInvisible>
                   )}
                 </div>
-                <span className="ml-6 text-base text-red-600">{errors.password?.message}</span>
+                <span className="ml-6 text-base text-red-600">{""}</span>
               </IconContext.Provider>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -354,7 +355,7 @@ export const SignUpUser  = () =>{
                   )}
                 </div>
               </IconContext.Provider>
-              <span className="ml-6 text-base text-red-600">{errors.password2?.message  }</span>
+              <span className="ml-6 text-base text-red-600">{""}</span>
               <div className="flex flex-col w-[90%] items-center">
                 <button
                   type="submit"
