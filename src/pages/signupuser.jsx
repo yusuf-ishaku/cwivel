@@ -7,6 +7,7 @@ import SignUpUserTab from "../assets/img/SignUpImageTab.png"
 import {AiOutlineMail} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup"
 import * as yup from "yup";
 import Axios from 'axios'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
@@ -32,17 +33,26 @@ export const SignUpUser  = () =>{
         value,
         onChange,
     });
-    const {register, handleSubmit} = useForm();
+    
     const schema = yup.object().shape({
         userName: yup.string().required(),
         email: yup.string().email().required(),
+        first_name: yup.string().required(),
+        last_name: yup.string().required(),
         password: yup.string().min(4).max(18).required(),
-        confirmPassword: yup.string().oneOf([yup.ref("password"), null]).required() 
+        password2: yup.string().oneOf([yup.ref("password"), null]).required() 
 
-    })
+    });
+    const {register, handleSubmit} = useForm({
+        resolver: yupResolver(schema) ,
+    });
+    const {registerEmail, handleEmSubmit, formState: {errors}} = useForm();
     const submitData =  async (data) =>{
         console.log(data);
-        let demail = data.email
+        
+        let demail;
+        if(typeof data === "string"){demail = data}else if(typeof data === 'object')demail = data.email;
+        // return demail;
         if(emailState === true && interEmailState === false){
             try{
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: demail });
@@ -58,7 +68,7 @@ export const SignUpUser  = () =>{
             }
         }else if(emailState === true && interEmailState === true){
             // console.log(value);
-            let demail = data.email;
+            // let demail = data;
             if(value.length < 4) return;
             try{
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail, otp: value });
@@ -75,11 +85,11 @@ export const SignUpUser  = () =>{
         }else{
           let newData = {
             email: emailInState,
-            username: data.userName,
-            first_name: data.firstName,
-            last_name: data.lastName,
+            username: data.username,
+            first_name: data.first_name,
+            last_name: data.last_name,
             password: data.password,
-            password2: data.confirmPassword
+            password2: data.password2
           }
           try{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
@@ -108,7 +118,7 @@ export const SignUpUser  = () =>{
                 : `Let's get your details`}
             </h4>
             <form
-              onSubmit={handleSubmit(submitData)}
+              onSubmit={(e) =>{ e.preventDefault(); submitData(emailInState)}}
               className={
                 emailState
                   ? "flex flex-col items-start justify-center mt-5"
@@ -118,15 +128,16 @@ export const SignUpUser  = () =>{
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="email" className="mb-2 text-gray-800">
+                <label htmlFor="email" className="mb-2 ml-6 text-gray-800">
                   Email
                 </label>
-                <div className="flex flex-row items-center justify-center w-[90%]">
+                <div className="flex mx-auto flex-row items-center justify-center w-[90%]">
                   <input
                     type="email"
                     {...register("email")}
                     placeholder="sample@gmail.com"
                     id="email"
+                    onChange={(e)=>setEmailInState(e.target.value)}
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
@@ -146,9 +157,9 @@ export const SignUpUser  = () =>{
                     <input  className='w-8 rounded-md text-center p-2 border-[1px] mx-2'  inputMode="decimal" {...digits[3]} />
                 </div>
               </div>
-              <div className="flex flex-col w-[90%] items-center">
+              <div className="flex flex-col w-[90%] mx-auto items-center">
                 <button
-                  type="submit"
+                  
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
                 >
                   {interEmailState ? emailState ? "Continue": "Submit Details" : "Get OTP"}
@@ -167,7 +178,7 @@ export const SignUpUser  = () =>{
               </div>
             </form>
             <form onSubmit={handleSubmit(submitData)} className={emailState ? "hidden" : "block"}>
-              <label htmlFor="username" className="mb-2 text-gray-800">
+              <label htmlFor="username" className="mb-2 ml-6 text-gray-800">
                 Username
               </label>
               <input
@@ -175,17 +186,50 @@ export const SignUpUser  = () =>{
                 placeholder="User Name"
                 name="username"
                 id="uname"
-                {...register("userName")}
-                className="mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
+                {...register("username")}
+                className="mb-3  mx-auto placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
               />
+              <span className="ml-2 text-base text-red-600"></span>
+              <label
+                  htmlFor="first_name"
+                  className="mb-2 ml-6 text-gray-800"
+                >
+                  First Name
+                </label>
+                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
+                  <input
+                    type= "text"
+                    {...register("first_name")}
+                    placeholder="**********"
+                    id="first_name"
+                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
+                    required
+                  />
+                </div>
+                <label
+                  htmlFor="confirm password"
+                  className="mb-2 ml-6 text-gray-800"
+                >
+                  Last Name
+                </label>
+                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
+                  <input
+                    type= "text"
+                    {...register("last_name")}
+                    placeholder="**********"
+                    id="last_name"
+                    className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
+                    required
+                  />
+                </div>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="password" className="mb-2 text-gray-800">
+                <label htmlFor="password" className="mb-2 ml-6 text-gray-800">
                   Password
                 </label>
-                <div className="flex flex-row items-center justify-end  w-[90%]">
+                <div className="flex flex-row items-center justify-end mx-auto  w-[90%]">
                   <input
                     type={eyeopen ? "text" : "password"}
                     {...register("password")}
@@ -220,15 +264,15 @@ export const SignUpUser  = () =>{
                 value={{ size: "20", className: "text-gray-400" }}
               >
                 <label
-                  htmlFor="confirm password"
-                  className="mb-2 text-gray-800"
+                  htmlFor="password2"
+                  className="mb-2 ml-6 text-gray-800"
                 >
                   Confirm Password
                 </label>
-                <div className="flex flex-row items-center justify-end w-[90%]">
+                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
                   <input
                     type={eyeopen2 ? "text" : "password"}
-                    {...register("confirmPassword")}
+                    {...register("password2")}
                     placeholder="**********"
                     id="confirmpassword"
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
@@ -257,20 +301,13 @@ export const SignUpUser  = () =>{
                   )}
                 </div>
               </IconContext.Provider>
-              <div className="flex flex-col w-[90%] items-center">
+              <div className="flex flex-col w-[90%] items-center mx-auto">
                 <button
                   type="submit"
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
                 >
                   {emailState ? "Get OTP" : "Continue"}
                 </button>
-                {/* <button
-                  type="submit"
-                  className="flex items-center justify-center bg-white w-full text-cwivel border-gray-300 border-[1px] p-2 px-5 rounded-md z-50"
-                >
-                  <FcGoogle></FcGoogle>
-                  Sign Up with Google
-                </button> */}
               </div>
             </form>
           </div>
