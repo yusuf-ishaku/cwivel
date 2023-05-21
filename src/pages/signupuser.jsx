@@ -59,6 +59,7 @@ export const SignUpUser  = () =>{
         }else if(emailState === true && interEmailState === true){
             // console.log(value);
             let demail = data.email;
+            if(value.length < 4) return;
             try{
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail, otp: value });
                 console.log(response?.data)
@@ -84,7 +85,7 @@ export const SignUpUser  = () =>{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
             console.log(response?.data)
             if(response?.data.status === true){
-                navigate('/dashboard')
+                navigate('/dashboard');
             }
             
         } catch (err){
