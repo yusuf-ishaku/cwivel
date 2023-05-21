@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImg.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
@@ -20,7 +21,9 @@ export const SignUpUser  = () =>{
     const [emailState, setEmailState] = useState(true);
     const [interEmailState, setInterEmailState] = useState(false);
     const [inform, setInform ] = useState('');
-    const [informSideNote, setInformSideNote] = useState('')
+    const navigate = useNavigate();
+    const [informSideNote, setInformSideNote] = useState('');
+    const[emailInState, setEmailInState] = useState('')
     const verily = useRef();
     const [value, onChange] = useState('');
     const digits = useDigitInput({
@@ -54,19 +57,39 @@ export const SignUpUser  = () =>{
                 console.error(err.response?.data)
             }
         }else if(emailState === true && interEmailState === true){
-            console.log(value);
+            // console.log(value);
+            let demail = data.email;
             try{
-                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail });
+                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail, otp: value });
                 console.log(response?.data)
                 if(response?.data.status === true){
-                    setInform(response.data.message);
-                    setInformSideNote(response.data.data.email)
-                    setInterEmailState(true);
+                    setInterEmailState(false);
+                    setEmailState(false);
+                    setEmailInState(demail);
                 }
                 
             } catch (err){
                 console.error(err.response?.data)
             }
+        }else{
+          let newData = {
+            email: emailInState,
+            username: data.userName,
+            first_name: data.firstName,
+            last_name: data.lastName,
+            password: data.password,
+            password2: data.confirmPassword
+          }
+          try{
+            const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
+            console.log(response?.data)
+            if(response?.data.status === true){
+                navigate('/dashboard')
+            }
+            
+        } catch (err){
+            console.error(err.response?.data)
+        }
         }
        
     };
@@ -127,7 +150,7 @@ export const SignUpUser  = () =>{
                   type="submit"
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
                 >
-                  {interEmailState ? "Continue" : "Get OTP"}
+                  {interEmailState ? emailState ? "Continue": "Submit Details" : "Get OTP"}
                 </button>
                 <button
                   type="submit"
@@ -142,7 +165,7 @@ export const SignUpUser  = () =>{
                 </button>
               </div>
             </form>
-            <form className={emailState ? "hidden" : "block"}>
+            <form onSubmit={handleSubmit(submitData)} className={emailState ? "hidden" : "block"}>
               <label htmlFor="username" className="mb-2 text-gray-800">
                 Username
               </label>
@@ -240,13 +263,13 @@ export const SignUpUser  = () =>{
                 >
                   {emailState ? "Get OTP" : "Continue"}
                 </button>
-                <button
+                {/* <button
                   type="submit"
                   className="flex items-center justify-center bg-white w-full text-cwivel border-gray-300 border-[1px] p-2 px-5 rounded-md z-50"
                 >
                   <FcGoogle></FcGoogle>
                   Sign Up with Google
-                </button>
+                </button> */}
               </div>
             </form>
           </div>
