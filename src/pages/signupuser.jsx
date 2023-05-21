@@ -1,20 +1,19 @@
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImg.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
-import SignUpUserTab from "../assets/img/SignUpImageTab.png"
-import {AiOutlineMail} from 'react-icons/ai';
-import {Link} from 'react-router-dom';
+import SignUpUserTab from "../assets/img/SignUpImageTab.png";
+import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
 import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup"
+import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Axios from 'axios'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import Axios from 'axios';
+import { useQuery } from 'react-query';
+import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import useDigitInput from 'react-digit-input';
-import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
-
+import { BiErrorCircle } from "react-icons/bi";
 export const SignUpUser  = () =>{
     // Axios.create()
     const [eyeopen, setEyeOpen] = useState(false);
@@ -27,6 +26,11 @@ export const SignUpUser  = () =>{
     const[emailInState, setEmailInState] = useState('')
     const verily = useRef();
     const [value, onChange] = useState('');
+    let [errorAvailable, setErrorAvailable] = useState(false);
+    let [theErrorMessage, setTheErrorMessage] = useState('');
+    const [si, setSi]  = useState(false);
+ 
+    // console.log(theErrorMessage+ " + " + errorAvailable);
     const digits = useDigitInput({
         acceptedCharacters: /^[0-9]$/,
         length: 4,
@@ -64,7 +68,18 @@ export const SignUpUser  = () =>{
                 }
                 
             } catch (err){
-                console.error(err.response?.data)
+              console.error(err)
+              if(err.code === "ERR_BAD_REQUEST"){
+                setErrorAvailable(true);
+                setTheErrorMessage("Email has already been verified, please sign in!");
+              }else if(err.code === "ERR_NETWORK"){
+                setErrorAvailable(true);
+                setTheErrorMessage(`${err.message}: Please check your internet connection!`);
+              }
+              setInterval(()=>{
+                setErrorAvailable(false);
+                setTheErrorMessage("");
+              }, 4000);
             }
         }else if(emailState === true && interEmailState === true){
             // console.log(value);
@@ -72,7 +87,7 @@ export const SignUpUser  = () =>{
             if(value.length < 4) return;
             try{
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail, otp: value });
-                console.log(response?.data)
+                console.log(response?.data);
                 if(response?.data.status === true){
                     setInterEmailState(false);
                     setEmailState(false);
@@ -112,16 +127,20 @@ export const SignUpUser  = () =>{
             <h2 className="text-cwivel text-left w-full font-semibold mb-2 text-md md:text-lg">
               Create Account
             </h2>
-            <h4 className="text-gray-500 text-base mb-5">
+            <h4 className="text-gray-500 text-base mb-2">
               {emailState
                 ? `Let\'s verify your email`
                 : `Let's get your details`}
             </h4>
+            {errorAvailable ? <div className='w-[90%]  p-1 border-gray-400 border-[1px] rounded-md'>
+              <h2 className='text-[0.8rem] flex'><BiErrorCircle style={{color: 'red',}} size={'16px'}></BiErrorCircle><span className='ml-1 text-red-900 font-medium'>{theErrorMessage}</span></h2>
+              </div>
+              : ''}
             <form
               onSubmit={(e) =>{ e.preventDefault(); submitData(emailInState)}}
               className={
                 emailState
-                  ? "flex flex-col items-start justify-center mt-5"
+                  ? "flex flex-col items-start justify-center mt-2"
                   : "hidden"
               }
             >
@@ -190,7 +209,7 @@ export const SignUpUser  = () =>{
                 className="mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
               />
-              <span className="ml-6 text-base text-red-600">{errors.username?.message  }</span>
+              {/* <span className="ml-6 text-base text-red-600">{errors.username?.message  }</span> */}
               <label
                   htmlFor="first_name"
                   className="mb-2 ml-1 text-gray-800"
