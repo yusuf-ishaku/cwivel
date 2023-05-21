@@ -35,12 +35,12 @@ export const SignUpUser  = () =>{
     });
     
     const schema = yup.object().shape({
-        userName: yup.string().required(),
-        email: yup.string().email().required(),
-        first_name: yup.string().required(),
-        last_name: yup.string().required(),
-        password: yup.string().min(4).max(18).required(),
-        password2: yup.string().oneOf([yup.ref("password"), null]).required() 
+        username: yup.string().required("Your username is a required field!"),
+       
+        first_name: yup.string().required("First name is required"),
+        last_name: yup.string().required("Last name is required"),
+        password: yup.string().min(4).max(8).required("Password must be more than 4 characters "),
+        password2: yup.string().oneOf([yup.ref("password"), null]).required("passwords don't match") 
 
     });
     const {register, handleSubmit} = useForm({
@@ -190,7 +190,7 @@ export const SignUpUser  = () =>{
                 className="mb-3  mx-auto placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
               />
-              <span className="ml-2 text-base text-red-600"></span>
+              <span className="ml-6 text-base text-red-600">{errors.username?.message  }</span>
               <label
                   htmlFor="first_name"
                   className="mb-2 ml-6 text-gray-800"
@@ -206,6 +206,7 @@ export const SignUpUser  = () =>{
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
+                  <span className="ml-6 text-base text-red-600">{errors.first_name?.message  }</span>
                 </div>
                 <label
                   htmlFor="confirm password"
@@ -213,7 +214,7 @@ export const SignUpUser  = () =>{
                 >
                   Last Name
                 </label>
-                <div className="flex flex-row items-center justify-end mx-auto w-[90%]">
+                <div className="flex flex-col items-center justify-end mx-auto w-[90%]">
                   <input
                     type= "text"
                     {...register("last_name")}
@@ -222,6 +223,7 @@ export const SignUpUser  = () =>{
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
+                  <span className="ml-6 text-base text-red-600">{errors.last_name?.message  }</span>
                 </div>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -259,6 +261,7 @@ export const SignUpUser  = () =>{
                     ></AiFillEyeInvisible>
                   )}
                 </div>
+                <span className="ml-6 text-base text-red-600">{errors.password?.message}</span>
               </IconContext.Provider>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -301,6 +304,7 @@ export const SignUpUser  = () =>{
                   )}
                 </div>
               </IconContext.Provider>
+              <span className="ml-6 text-base text-red-600">{errors.password2?.message  }</span>
               <div className="flex flex-col w-[90%] items-center mx-auto">
                 <button
                   type="submit"
