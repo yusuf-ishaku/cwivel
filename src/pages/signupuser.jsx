@@ -19,6 +19,8 @@ export const SignUpUser  = () =>{
     const [eyeopen2, setEyeOpen2] = useState(false);
     const [emailState, setEmailState] = useState(true);
     const [interEmailState, setInterEmailState] = useState(false);
+    const [inform, setInform ] = useState('');
+    const [informSideNote, setInformSideNote] = useState('')
     const verily = useRef();
     const [value, onChange] = useState('');
     const digits = useDigitInput({
@@ -37,10 +39,31 @@ export const SignUpUser  = () =>{
     })
     const submitData =  async (data) =>{
         console.log(data);
-        if(emailState === true){
+        let demail = data.email
+        if(emailState === true && interEmailState === false){
             try{
-                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: data.email });
-                console.log(response?.data);
+                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: demail });
+                console.log(response?.data)
+                if(response?.data.status === true){
+                    setInform(response.data.message);
+                    setInformSideNote(response.data.data.email)
+                    setInterEmailState(true);
+                }
+                
+            } catch (err){
+                console.error(err.response?.data)
+            }
+        }else if(emailState === true && interEmailState === true){
+            console.log(value);
+            try{
+                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail });
+                console.log(response?.data)
+                if(response?.data.status === true){
+                    setInform(response.data.message);
+                    setInformSideNote(response.data.data.email)
+                    setInterEmailState(true);
+                }
+                
             } catch (err){
                 console.error(err.response?.data)
             }
@@ -89,18 +112,22 @@ export const SignUpUser  = () =>{
                   ></AiOutlineMail>
                 </div>
               </IconContext.Provider>
-              <div className="flex flex-row items-center justify-center w-[90%] my-2">
-                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" autoFocus {...digits[0]} />
-                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[1]} />
-                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[2]} />
-                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2'  inputMode="decimal" {...digits[3]} />
+              
+              <div className={interEmailState ? "flex flex-col items-center justify-center w-[90%] my-2" : 'hidden'}>
+                <span className='text-gray-600 text-sm sm:text-md mb-2'>{`We have sent a One-Time Password to ${informSideNote}. Please, ${inform}`}</span>
+                <div className='input-group flex flex-row mb-2'>   
+                    <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" autoFocus {...digits[0]} />
+                    <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[1]} />
+                    <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[2]} />
+                    <input  className='w-8 rounded-md text-center p-2 border-[1px] mx-2'  inputMode="decimal" {...digits[3]} />
+                </div>
               </div>
               <div className="flex flex-col w-[90%] items-center">
                 <button
                   type="submit"
                   className="text-white w-full bg-cwivel-green p-2  mb-2 px-5 rounded-md z-50"
                 >
-                  {emailState ? "Get OTP" : "Continue"}
+                  {interEmailState ? "Continue" : "Get OTP"}
                 </button>
                 <button
                   type="submit"
