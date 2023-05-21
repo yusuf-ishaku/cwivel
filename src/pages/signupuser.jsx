@@ -90,10 +90,10 @@ export const SignUpUser  = () =>{
                 </div>
               </IconContext.Provider>
               <div className="flex flex-row items-center justify-center w-[90%] my-2">
-                <input className='w-8 rounded-md' inputMode="decimal" autoFocus {...digits[0]} />
-                <input className='w-8 rounded-md' inputMode="decimal" {...digits[1]} />
-                <input className='w-8 rounded-md' inputMode="decimal" {...digits[2]} />
-                <input className='w-8 rounded-md'  inputMode="decimal" {...digits[3]} />
+                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" autoFocus {...digits[0]} />
+                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[1]} />
+                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[2]} />
+                <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2'  inputMode="decimal" {...digits[3]} />
               </div>
               <div className="flex flex-col w-[90%] items-center">
                 <button
