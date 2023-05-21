@@ -33,7 +33,7 @@ export const SignUpUser  = () =>{
     // console.log(theErrorMessage+ " + " + errorAvailable);
     const digits = useDigitInput({
         acceptedCharacters: /^[0-9]$/,
-        length: 4,
+        length: 4, 
         value,
         onChange,
     });
@@ -52,6 +52,7 @@ export const SignUpUser  = () =>{
     });
     const {registerEmail, handleEmSubmit, formState: {errors}} = useForm();
     const submitData =  async (data) =>{
+        setSi(false)
         console.log(data);
         
         let demail;
@@ -71,7 +72,9 @@ export const SignUpUser  = () =>{
               console.error(err)
               if(err.code === "ERR_BAD_REQUEST"){
                 setErrorAvailable(true);
+                setSi(true);
                 setTheErrorMessage("Email has already been verified, please sign in!");
+                
               }else if(err.code === "ERR_NETWORK"){
                 setErrorAvailable(true);
                 setTheErrorMessage(`${err.message}: Please check your internet connection!`);
@@ -84,19 +87,37 @@ export const SignUpUser  = () =>{
         }else if(emailState === true && interEmailState === true){
             // console.log(value);
             // let demail = data;
-            if(value.length < 4) return;
-            try{
-                const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/verify-email/", { email: demail, otp: value });
-                console.log(response?.data);
-                if(response?.data.status === true){
+            let otpValue = ""
+            digits.forEach((digit)=>{
+              otpValue+=digit.value
+            });
+            // console.log(otpValue.length)
+            // console.log(value.length)
+            if(otpValue.length < 4) {
+              setErrorAvailable(true);
+              setTheErrorMessage("OTP is less than four digits, please correct it!");
+              setInterval(()=>{
+                setErrorAvailable(false);
+                setTheErrorMessage("");
+              }, 4000);
+              return;
+            }else{
+                try {
+                  const response = await Axios.post(
+                    "https://cwivel.pythonanywhere.com/auth/verify-email/",
+                    { email: demail, otp: value }
+                  );
+                  console.log(response?.data);
+                  if (response?.data.status === true) {
                     setInterEmailState(false);
                     setEmailState(false);
                     setEmailInState(demail);
+                  }
+                } catch (err) {
+                  console.error(err);
                 }
-                
-            } catch (err){
-                console.error(err.response?.data)
             }
+           
         }else{
           let newData = {
             email: emailInState,
@@ -183,12 +204,19 @@ export const SignUpUser  = () =>{
                 >
                   {interEmailState ? emailState ? "Continue": "Submit Details" : "Get OTP"}
                 </button>
+                {si ?<Link style={{width: '100%'}} to={'/login'}><button
+                  
+                  className="text-cwivel w-full border-green-300 border-[1px] bg-white p-2  mb-2 px-5 rounded-md z-50"
+                >
+                 Sign In
+                </button></Link> 
+                : ''}
                 <button
-                  type="submit"
+                  // type="submit"
                   className={
                     interEmailState
                       ? "hidden"
-                      : "flex items-center justify-center bg-white w-full text-cwivel border-gray-300 border-[1px] p-2 px-5 rounded-md z-50"
+                      : "flex items-center justify-center bg-white w-full text-cwivel border-green-300 border-[1px] p-2 px-5 rounded-md z-50"
                   }
                 >
                   <FcGoogle></FcGoogle>
