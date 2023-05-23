@@ -53,7 +53,7 @@ export const SignUpUser  = () =>{
 
     const submitData =  async (data) =>{
         setSi(false)
-        console.log(data);
+        // console.log(data);
         
         let demail;
         if(typeof data === "string"){demail = data}else if(typeof data === 'object')demail = data.email;
@@ -61,7 +61,7 @@ export const SignUpUser  = () =>{
         if(emailState === true && interEmailState === false){
             try{
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: demail });
-                console.log(response?.data)
+                // console.log(response?.data)
                 if(response?.data.status === true){
                     setInform(response.data.message);
                     setInformSideNote(response.data.data.email);
@@ -109,7 +109,7 @@ export const SignUpUser  = () =>{
                     "https://cwivel.pythonanywhere.com/auth/verify-email/",
                     { email: demail, otp: value }
                   );
-                  console.log(response?.data);
+                  // console.log(response?.data);
                   if (response?.data.status === true) {
                     localStorage.setItem("interEmailState", JSON.stringify(false));
                     setInterEmailState(false);
@@ -138,9 +138,9 @@ export const SignUpUser  = () =>{
           }
           try{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
-            console.log(response?.data)
-            if(response?.data.response === "Registration "){
-                navigate('/dashboard');
+            // console.log(response?.data)
+            if(response?.data.response === "Registration Successful!"){
+                navigate('/login');
             }
             
         } catch (err){
