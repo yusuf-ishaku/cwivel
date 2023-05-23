@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useNavigate, Link, json } from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImg.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
@@ -16,10 +16,13 @@ import useDigitInput from 'react-digit-input';
 import { BiErrorCircle } from "react-icons/bi";
 export const SignUpUser  = () =>{
     // Axios.create()
+    // localStorage.setItem("emailState", JSON.stringify(true))
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
-    const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState")) || true);
+    const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState") || true));
+    // console.log(emailState)
     const [interEmailState, setInterEmailState] = useState(JSON.parse(localStorage.getItem("interEmailState"))||false);
+    // console.log(interEmailState)
     const [inform, setInform ] = useState('');
     const navigate = useNavigate();
     const [informSideNote, setInformSideNote] = useState('');
@@ -64,8 +67,9 @@ export const SignUpUser  = () =>{
                     setInformSideNote(response.data.data.email);
                     localStorage.setItem("interEmailState", JSON.stringify(true))
                     setInterEmailState(true);
+                    localStorage.setItem("emailInState", JSON.stringify(response.data.data.email));
+                    setEmailInState(response.data.data.email);
                 }
-                
             } catch (err){
               console.error(err)
               if(err.code === "ERR_BAD_REQUEST"){
@@ -209,6 +213,7 @@ export const SignUpUser  = () =>{
                     id="email"
                     onChange={(e)=>setEmailInState(e.target.value)}
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm -ml-5 border-gray-300 rounded-md border-me w-[100%] h-10"
+                    defaultValue={emailInState}
                     required
                   />
                   <AiOutlineMail
@@ -219,7 +224,7 @@ export const SignUpUser  = () =>{
               </IconContext.Provider>
               
               <div className={interEmailState ? "flex flex-col items-center justify-center w-[90%] my-2" : 'hidden'}>
-                <span className='text-gray-600 text-sm sm:text-md mb-2'>{`We have sent a One-Time Password to ${informSideNote}. Please, ${inform}`}</span>
+                <span className='text-gray-600 text-sm sm:text-md mb-2'>{`We have sent a One-Time Password to ${informSideNote === ''? emailInState : informSideNote}. Please, ${inform === ''? "verify your email" : inform}`}</span>
                 <div className='input-group flex flex-row mb-2'>   
                     <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" autoFocus {...digits[0]} />
                     <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" {...digits[1]} />
