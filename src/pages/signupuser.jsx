@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, json } from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImg.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
@@ -18,12 +18,12 @@ export const SignUpUser  = () =>{
     // Axios.create()
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
-    const [emailState, setEmailState] = useState(true);
-    const [interEmailState, setInterEmailState] = useState(false);
+    const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState")) || true);
+    const [interEmailState, setInterEmailState] = useState(JSON.parse(localStorage.getItem("interEmailState"))||false);
     const [inform, setInform ] = useState('');
     const navigate = useNavigate();
     const [informSideNote, setInformSideNote] = useState('');
-    const[emailInState, setEmailInState] = useState('')
+    const[emailInState, setEmailInState] = useState(JSON.parse(localStorage.getItem('emailInState')) || '')
     const verily = useRef();
     const [value, onChange] = useState('');
     let [errorAvailable, setErrorAvailable] = useState(false);
@@ -61,7 +61,8 @@ export const SignUpUser  = () =>{
                 console.log(response?.data)
                 if(response?.data.status === true){
                     setInform(response.data.message);
-                    setInformSideNote(response.data.data.email)
+                    setInformSideNote(response.data.data.email);
+                    localStorage.setItem("interEmailState", JSON.stringify(true))
                     setInterEmailState(true);
                 }
                 
@@ -106,8 +107,11 @@ export const SignUpUser  = () =>{
                   );
                   console.log(response?.data);
                   if (response?.data.status === true) {
+                    localStorage.setItem("interEmailState", JSON.stringify(false));
                     setInterEmailState(false);
+                    localStorage.setItem("emailState", JSON.stringify(false));
                     setEmailState(false);
+                    localStorage.setItem("emailInState", JSON.stringify(demail));
                     setEmailInState(demail);
                   }
                 } catch (err) {
