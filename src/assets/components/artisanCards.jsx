@@ -1,3 +1,4 @@
+// This is component for describing some artisans here. Nothing to see here either.
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { BsBookmarkDash } from "react-icons/bs";

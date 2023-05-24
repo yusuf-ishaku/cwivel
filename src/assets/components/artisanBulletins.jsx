@@ -1,3 +1,5 @@
+// this is the page for the component that is displaying the artisans, nothing to see here.
+
 import { AiFillStar } from "react-icons/ai";
 import { IconContext } from "react-icons";
 export const ArtisanBulletins = (props) =>{

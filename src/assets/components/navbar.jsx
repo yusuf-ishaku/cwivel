@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+// You'll require a good understanding of how Tailwind CSS tackles responsiveneess to understand the basic hides and shows on this page.
 export const Navbar = (props) => {
     return(
         <div className="w-full bg-cwivel-green px-4 md:px-14 flex py-4 flex-row justify-between items-center">

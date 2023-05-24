@@ -1,3 +1,5 @@
+// Another component showing artisan stuff, nothing to view here for now.
+
 import { Link } from "react-router-dom";
 
 export const ArtisanSelect = (props) =>{

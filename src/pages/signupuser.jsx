@@ -17,6 +17,9 @@ import { BiErrorCircle } from "react-icons/bi";
 export const SignUpUser  = () =>{
     // Axios.create()
     // localStorage.setItem("emailState", JSON.stringify(true))
+    // I did not use redirects or linked pages to change the different looks on the 
+    // user sign up page I just changed he ui based on variables that changed  to true and false based on the state. 
+    // I used localstorage to preserve the current state of the application in case a user refreshes to prevent losing application state.
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
     const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState") || true));
@@ -34,13 +37,14 @@ export const SignUpUser  = () =>{
     const [si, setSi]  = useState(false);
  
     // console.log(theErrorMessage+ " + " + errorAvailable);
+    // This aspect is used to render a 4 digit input for the otp, check imports for the dependency used.
     const digits = useDigitInput({
         acceptedCharacters: /^[0-9]$/,
         length: 4, 
         value,
         onChange,
     });
-    
+    // Incomplete form state handling, anyone knowledgeable in this should try and complete it.
     const schema = yup.object().shape({
         username: yup.string().required("Your username is a required field!"),
         first_name: yup.string().required("First name is required"),
@@ -50,27 +54,37 @@ export const SignUpUser  = () =>{
 
     });
     const {register, handleSubmit} = useForm();
-
+    // This is the function used to handle the api calls.
     const submitData =  async (data) =>{
         setSi(false)
         // console.log(data);
-        
+        // this function is called for the first time when the user submits his/her email address.
+        // so data is passed as email, interEmailState and emailState are true so the first condition is what is carried out.
         let demail;
         if(typeof data === "string"){demail = data}else if(typeof data === 'object')demail = data.email;
         // return demail;
         if(emailState === true && interEmailState === false){
+          // basic try and catch syntax
             try{
+              // posting to recieve the otp
                 const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/send-otp/", { email: demail });
                 // console.log(response?.data)
+                // condition when otp is successfully sent
                 if(response?.data.status === true){
+                  // we inform the user by setting inform on the ui
                     setInform(response.data.message);
                     setInformSideNote(response.data.data.email);
+                    // we set interEmailState to be true to effectively change the UI and preserve application state
                     localStorage.setItem("interEmailState", JSON.stringify(true))
                     setInterEmailState(true);
+                    // we also preserve the email used for two reasons;
+                    // in case the user accidentally refreshes the page at this point, the mesage he will see will be that 
+                    // the otp has been sent to this email as you will see further down the code.
                     localStorage.setItem("emailInState", JSON.stringify(response.data.data.email));
                     setEmailInState(response.data.data.email);
                 }
             } catch (err){
+              // handling possible errors and setting a certain modal at the top of the page with information reagarding the error
               console.error(err)
               if(err.code === "ERR_BAD_REQUEST"){
                 setErrorAvailable(true);
@@ -87,6 +101,9 @@ export const SignUpUser  = () =>{
               }, 4000);
             }
         }else if(emailState === true && interEmailState === true){
+          // this is occurs the second time the function is called.
+          // the button that will call the fucntion with demail held in state and in localstorage for abovementioned reasons and value
+          // the value of the 4 digit otp sent to the email
             // console.log(value);
             // let demail = data;
             let otpValue = ""
@@ -95,6 +112,7 @@ export const SignUpUser  = () =>{
             });
             // console.log(otpValue.length)
             // console.log(value.length)
+            // this is to make sure that the correct length of otp is used to avoid that error beforehand.
             if(otpValue.length < 4) {
               setErrorAvailable(true);
               setTheErrorMessage("OTP is less than four digits, please correct it!");
@@ -104,6 +122,7 @@ export const SignUpUser  = () =>{
               }, 4000);
               return;
             }else{
+              // if the otp is valid, we try to verify the email
                 try {
                   const response = await Axios.post(
                     "https://cwivel.pythonanywhere.com/auth/verify-email/",
@@ -111,6 +130,7 @@ export const SignUpUser  = () =>{
                   );
                   // console.log(response?.data);
                   if (response?.data.status === true) {
+                    // we change application state based on the response and change the localstorage to persist the data in case user refreshes.
                     localStorage.setItem("interEmailState", JSON.stringify(false));
                     setInterEmailState(false);
                     localStorage.setItem("emailState", JSON.stringify(false));
@@ -119,15 +139,28 @@ export const SignUpUser  = () =>{
                     setEmailInState(demail);
                   }
                 } catch (err) {
+                  // we have already reduced possible errors by preserving the email used to send the otp and also making sure the lenght of the otp is proper.
+                  // so the only error is if the otp is invalid
                   console.error(err);
                   if(err.code === "BAD_REQUEST"){
+                    // we update the ui to reflect the changes.
                     setErrorAvailable(true);
                     setTheErrorMessage("This OTP is invalid");
+                    // we reset the ui to it's initial state after 4 seconds displaying the image. might make it longer or add a button to clear it out.
+                    // other means were too long. besides, na MVP this.
+                    setInterval(()=>{
+                      setErrorAvailable(false);
+                      setTheErrorMessage("");
+                    }, 4000);
                   }
                 }
             }
            
         }else{
+          // at this point, the email has been verified and the ui state is showing inputs that will contain necessary data for registration
+          // here we specify what the object will look like, take note that data will no longer be an email but an object based on this fucntion call,
+          // you may not understand the logic now, but when you try the flow yourself you will undrstand that by not making buttons that can make certain function calls with data pased 
+          // in as email at some point and then an object containing user info at another point is all i did.
           let newData = {
             email: emailInState,
             username: data.username,
@@ -139,12 +172,14 @@ export const SignUpUser  = () =>{
           try{
             const response = await Axios.post("https://cwivel.pythonanywhere.com/auth/register/", newData);
             // console.log(response?.data)
+            // we post and upon recieving success, we move the user to login
             if(response?.data.response === "Registration Successful!"){
                 navigate('/login');
             }
             
         } catch (err){
-          console.error(err)
+          console.error(err);
+          // we just ahandle errors using previously specified means.
             if(err.response?.data.username[0] === "user with this username already exists."){
               setErrorAvailable(true);
               setTheErrorMessage("User with this username already exists. Please log in!");
@@ -174,6 +209,7 @@ export const SignUpUser  = () =>{
         }
        
     };
+    // This si the ui part, understanding the various state changes earlier is important to understand the use of the ternary operators and what is displaying at different points in time.
     return (
       <>
         <div className="w-[100vw] h-full flex flex-col items-center sm:items-start sm:flex sm:flex-row">
