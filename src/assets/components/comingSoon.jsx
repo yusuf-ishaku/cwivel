@@ -40,12 +40,12 @@ export const ComingSoon = () => {
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-3/5 ">
-                        <p className="text-6xl text-center sm:text-left w-full sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
+                        <h1 className="text-6xl text-center sm:text-left w-full sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
                             We are  coming soon!
-                        </p>
-                        <span className="text-xl w-full text-center sm:text-left leading-8">
+                        </h1>
+                        <h3 className="text-xl w-full text-center sm:text-left leading-8">
                             Sign up to be the first one to know when we launch!
-                        </span>
+                        </h3>
                      
                         <Countdown date={date} renderer={renderer} daysInHours={true}>
 

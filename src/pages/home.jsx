@@ -44,9 +44,9 @@ export const Home = () => {
                 <div  data-aos="fade-down" data-aos-easing="linear"
                         data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-3/5 ">
-                        <p className="text-lg w-4/6 sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
+                        <h1 className="text-lg w-4/6 sm:w-full md:text-5xl font-bold block text-cwivel leading-11">
                             Find The Perfect Artisan Best Suited For Your needs
-                        </p>
+                        </h1>
                     </div>
                     <div className="sm:block hidden sm:w-auto pl-6">
                         <img src={Sitting} alt="Sitting man"/>
@@ -66,7 +66,7 @@ export const Home = () => {
                     <div className="intros px-4 sm:px-0 flex flex-row justify-between w-full">
                         <div className="">
                             <h1 className="text-2xl font-bold">Top Artisans in Lekki</h1>
-                            <h3 className="text-gray-400 text-lg font-normal">Hire top artisans around you</h3>
+                            <h2 className="text-gray-400 text-lg font-normal">Hire top artisans around you</h2>
                         </div>
                         <div className="flex justify-center items-center ml-auto">
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
@@ -136,7 +136,7 @@ export const Home = () => {
                     <div className="intros flex flex-row justify-between w-full">
                         <div className="">
                             <h1 className="text-2xl font-bold">Top Deals and Offers</h1>
-                            <h3 className="text-gray-400 text-lg font-normal">Top Hire Discount for the week.</h3>
+                            <h2 className="text-gray-400 text-lg font-normal">Top Hire Discount for the week.</h2>
                         </div>
                         <div className="flex justify-center items-center ml-auto">
                             <a href="#" className="text-cwivel text-md font-semibold">See all</a>
@@ -204,12 +204,20 @@ export const Home = () => {
                 </div>
                 <div className="w-full px-4 py-32 pb-8 h-fit flex items-center">
                     <div className="mr-auto">
-                        <h3 className="font-semibold text-2xl">Why choose us?</h3>
+                        <h1 className="font-semibold text-2xl">Why choose us?</h1>
                         <ul className="list pt-1">
-                            <li className="p-1">Get connected with clients across Nigeria</li>
-                            <li className="p-1">Meet with client, negotiate your rate and get paid immediatly after services</li>
-                            <li className="p-1"> Get connected with artisans across Nigeria, Distance is no longer a barrier</li>
-                            <li className="p-1">Power within your reach</li>
+                            <li className="p-1">
+                                <h2>Get connected with clients across Nigeria</h2>
+                            </li>
+                            <li className="p-1">
+                                <h2>Meet with client, negotiate your rate and get paid immediatly after services</h2>
+                            </li>
+                            <li className="p-1"> 
+                                <h2>Get connected with artisans across Nigeria, Distance is no longer a barrier</h2>
+                            </li>
+                            <li className="p-1">
+                                <h2>Power within your reach</h2>
+                            </li>
                         </ul>
                     </div>
                     <div className="hidden sm:block">
@@ -224,7 +232,7 @@ export const Home = () => {
                         <h1 className="text-white text-lg">Too much job on your hand?</h1>
                         <h1 className="text-white text-lg">You can outsource here.</h1>
                         <h1 className="text-white text-lg">Hire artisans and sub-contract your projects to them.</h1>
-                        <button className="bg-white text-cwivel p-2 mt-5 rounded-full">Find Artisans</button>
+                        <button className="bg-white text-cwivel p-2 mt-5 rounded-full"><h3>Find Artisans</h3></button>
                     </div>
             </div>
             <div className="w-full flex h-fit">

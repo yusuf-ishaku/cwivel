@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 export const Navbar = (props) => {
     return(
         <div className="w-full bg-cwivel-green px-4 md:px-14 flex py-4 flex-row justify-between items-center">
-            <div className="text-white m-1 px-6 text-xs sm:text-lg block p-2">Cwivel<span className="text-teal-600">.com</span></div>
+            <div className="text-white m-1 px-6 text-xs sm:text-lg block p-2">
+                <h1 className="text-white sm:text-xl text-lg">Cwivel</h1>
+                <span className="text-teal-600">.com</span></div>
             <div className="hidden w-[50%]"><input type="search" name="Search" id="search" placeholder="Search"  className="placeholder-current w-full p-3 bg-white text-cwivel placeholder-black rounded-md focus:outline-none" /></div>
             <div className="w-full sm:flex flex ml-auto">
                 <div className="w-fit flex flex-row items-center ml-auto">
