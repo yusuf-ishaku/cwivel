@@ -22,6 +22,7 @@ export const Login = () =>{
         console.log(data);
         try{
            const response = await Axios.post("https://cwivel.pythonanywhere.com/api/login/", data);
+            console.log(response)
         }catch(error){
             console.error(error)
         }
