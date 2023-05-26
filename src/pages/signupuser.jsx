@@ -15,17 +15,13 @@ import { FcGoogle } from "react-icons/fc";
 import useDigitInput from 'react-digit-input';
 import { BiErrorCircle } from "react-icons/bi";
 export const SignUpUser  = () =>{
-    // Axios.create()
-    // localStorage.setItem("emailState", JSON.stringify(true))
     // I did not use redirects or linked pages to change the different looks on the 
     // user sign up page I just changed he ui based on variables that changed  to true and false based on the state. 
     // I used localstorage to preserve the current state of the application in case a user refreshes to prevent losing application state.
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
     const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState") || true));
-    // console.log(emailState)
     const [interEmailState, setInterEmailState] = useState(JSON.parse(localStorage.getItem("interEmailState"))||false);
-    // console.log(interEmailState)
     const [inform, setInform ] = useState('');
     const navigate = useNavigate();
     const [informSideNote, setInformSideNote] = useState('');
@@ -35,8 +31,6 @@ export const SignUpUser  = () =>{
     let [errorAvailable, setErrorAvailable] = useState(false);
     let [theErrorMessage, setTheErrorMessage] = useState('');
     const [si, setSi]  = useState(false);
- 
-    // console.log(theErrorMessage+ " + " + errorAvailable);
     // This aspect is used to render a 4 digit input for the otp, check imports for the dependency used.
     const digits = useDigitInput({
         acceptedCharacters: /^[0-9]$/,
@@ -44,7 +38,6 @@ export const SignUpUser  = () =>{
         value,
         onChange,
     });
-    // Incomplete form state handling, anyone knowledgeable in this should try and complete it.
     const schema = yup.object().shape({
         username: yup.string().required("Your username is a required field!"),
         first_name: yup.string().required("First name is required"),
