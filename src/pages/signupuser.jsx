@@ -46,7 +46,9 @@ export const SignUpUser  = () =>{
         password2: yup.string().oneOf([yup.ref("password"), null]).required("passwords don't match") 
 
     });
-    const {register, handleSubmit} = useForm();
+    const {register, handleSubmit, formState: {errors}} = useForm({
+      resolver: yupResolver(schema)
+    });
     // This is the function used to handle the api calls.
     const submitData =  async (data) =>{
         setSi(false)
@@ -221,7 +223,7 @@ export const SignUpUser  = () =>{
               </div>
               : ''}
             <form
-              onSubmit={(e) =>{ e.preventDefault(); submitData(emailInState)}}
+              onSubmit={(e) =>{ e.preventDefault(); handleSubmit(submitData(emailInState))}}
               className={
                 emailState
                   ? "flex flex-col items-start justify-center mt-2"
@@ -250,6 +252,7 @@ export const SignUpUser  = () =>{
                     className="-ml-10"
                   ></AiOutlineMail>
                 </div>
+                {errors.email ? <span className='text-[0.8rem] text-red-600 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.email.message}</span>: ""}
               </IconContext.Provider>
               
               <div className={interEmailState ? "flex flex-col items-center justify-center w-[90%] my-2" : 'hidden'}>
@@ -301,7 +304,7 @@ export const SignUpUser  = () =>{
                 className="mb-3 placeholder-gray-400 pl-6 text-sm border-gray-300 rounded-md border-me w-[90%] h-10"
                 required
               />
-              {/* <span className="ml-6 text-base text-red-600">{errors.username?.message  }</span> */}
+              {errors.username ? <span className='text-[0.8rem] text-red-600 p-2 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.username.message}</span>: ""}
               <label
                   htmlFor="first_name"
                   className="mb-2 ml-1 text-gray-800"
@@ -319,6 +322,7 @@ export const SignUpUser  = () =>{
                     required
                   />
                 </div>
+                {errors.first_name ? <span className='text-[0.8rem] text-red-600 p-2 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.first_name.message}</span>: ""}
                 <label
                   htmlFor="confirm password"
                   className="mb-2 text-gray-800"
@@ -335,7 +339,7 @@ export const SignUpUser  = () =>{
                     className="mb-3 placeholder-gray-400 p-6 text-gray-800 text-sm  border-gray-300 rounded-md border-me w-[100%] h-10"
                     required
                   />
-                  <span className="ml-6 text-base text-red-600">{""}</span>
+                  {errors.last_name ? <span className='text-[0.8rem] p-2 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.last_name.message}</span>: ""}
                 </div>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -374,7 +378,7 @@ export const SignUpUser  = () =>{
                     ></AiFillEyeInvisible>
                   )}
                 </div>
-                <span className="ml-6 text-base text-red-600">{""}</span>
+                {errors.password ? <span className='text-[0.8rem] text-red-600 p-2 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.password.message}</span>: ""}
               </IconContext.Provider>
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
@@ -418,7 +422,7 @@ export const SignUpUser  = () =>{
                   )}
                 </div>
               </IconContext.Provider>
-              <span className="ml-6 text-base text-red-600">{""}</span>
+              {errors.password2 ? <span className='text-[0.8rem] text-red-600 p-2 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.password2.message}</span>: ""}
               <div className="flex flex-col w-[90%] items-center">
                 <button
                   type="submit"
