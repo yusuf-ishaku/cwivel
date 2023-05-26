@@ -10,6 +10,7 @@ import SignupImageTab from '../assets/img/LoginImageTab.png'
 import { useForm } from 'react-hook-form';
 import  Axios  from 'axios';
 import {yupResolver} from "@hookform/resolvers/yup";
+import { BiErrorCircle } from "react-icons/bi";
 import * as yup from "yup";
 
 export const Login = () =>{
@@ -42,10 +43,10 @@ export const Login = () =>{
                 <div className="w-auto h-fit my-auto">
                     <h3 className='text-cwivel text-2xl font-semibold'>Welcome back</h3>
                     <h4 className='text-slate-600 text-md block my-3'>Please enter your details to continue</h4>
-                    <div className={errors.email || errors.password ? 'w-full bg-gray-300 p-2': "hidden"}>
-                        <span className='flex mx-1'><h3 className='text-red-500'>{errors.email?.message}</h3></span>
-                        <span className='flex mx-1 '><h3 className='text-red-500'>{errors.password?.message}</h3></span>
-                        <span className='flex mx-1'><h3 className='text-red-500'></h3></span>
+                    <div className={errors.email || errors.password ? 'w-full  rounded-md border-gray-300 border-[1px] p-2': "hidden"}>
+                        <span className='flex mx-1'>{errors.email? <h3 className='text-red-500 flex items-center'><BiErrorCircle style={{marginRight: '2px'}}></BiErrorCircle>Email is invalid</h3>  : ""}</span>
+                        <span className='flex items-center mx-1 '>{errors.password? <h3 className='text-red-500 flex items-center'><BiErrorCircle style={{marginRight: '2px'}}></BiErrorCircle>{errors.password.message}</h3>   : ""}</span>
+                        {/* <span className='flex mx-1'><h3 className='text-red-500'></h3></span> */}
                     </div>
                     <form onSubmit={handleSubmit(submitData)} className=''>
                         <label htmlFor="email" className='text-slate-700'>Email</label>
