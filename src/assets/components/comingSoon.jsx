@@ -86,7 +86,7 @@ export const ComingSoon = () => {
                         </div>
                     </div>
 
-                    <div className="md:block hidden sm:w-auto pl-6">
+                    <div className="sm:block hidden sm:w-auto pl-6">
                         <img src={Sitting} alt="Sitting man"/>
                     </div>
                 </div>
