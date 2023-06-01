@@ -3,6 +3,7 @@ import { FaUser } from 'react-icons/fa';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 import { IconContext } from "react-icons";
+import Cwivel from '../assets/img/cwivel.png';
 
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export const Signup = () =>{
         <>
             <div className="w-full">
                 <div className="w-[90%] sm:w-[60%] lg:w-[40%] flex flex-col items-center pt-16 mx-auto h-[100vh]">
-                    <img src = "" alt = "Logo"/>
+                    <img src = {Cwivel} alt = "Logo" className='max-w-[150px]'/>
                     <div className="w-full my-2">
                         <h1 className='text-cwivel text-xl p-2 my-2'>Sign Up </h1>
                         <p className="text-md font-light p-2">
