@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { BrowserRouter as Router, Route, Routes, Link  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { QueryClient, QueryClientProvider} from "react-query";
 import { Navbar } from './assets/components/navbar';
 import { Home } from "./pages/home"
@@ -21,8 +21,9 @@ function App() {
       <QueryClientProvider client={user}>
         <Router>
           <Routes>
-            <Route path='/' element={<ComingSoon></ComingSoon>}></Route>
-            <Route path='/home' element = {<Home/>}/>
+            {/* <Route path='/'  index element={<Navigate to={"/come"}/>}></Route> */}
+            <Route path='/' element={<ComingSoon/>}></Route>
+            <Route path='/home' element = {<Home/>}></Route>
             <Route path='/chat' element = {<Chat/>}></Route>
             <Route path='/dashboard' element ={<Dashboard/>}></Route>
             <Route path='/users' element ={<Users/>}/>

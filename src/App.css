@@ -68,4 +68,9 @@ input::placeholder{
   .cn:hover{
     box-shadow: 1px 1px 1px 1px rgba(85, 85, 85, 0.801);
   }
+  .active{
+    border-bottom: 1px;
+    border-color: white;
+    color: white;
+  }
 }
