@@ -7,6 +7,7 @@ import Sitting from "/src/assets/img/sitting.png"
 import { IconContext } from "react-icons";
 // This is the import for the depency used for the countdown
 import Countdown from 'react-countdown';
+import { NavBar2 } from "./nav2";
 
 export const ComingSoon = () => {
     // Initializing the day the countdown should end.
@@ -50,7 +51,8 @@ export const ComingSoon = () => {
       };
     return(
         <>
-            <Navbar cl = {false}/>
+            {/* <Navbar cl = {false}/>
+            <NavBar2></NavBar2> */}
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div className="hero px-4 sm:px-0 w-full py-3 sm:py-12 flex flex-row justify-between items-center">
                     <div className="block h-fit w-full sm:w-3/5 ">

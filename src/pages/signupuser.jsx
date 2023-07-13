@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
-import SignUpUserImg from '../assets/img/SignUpUserImg.png';
+import SignUpUserImg from '../assets/img/SignUpUserImage.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
 import SignUpUserTab from "../assets/img/SignUpImageTab.png";
 import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
@@ -207,13 +207,13 @@ export const SignUpUser  = () =>{
     // This si the ui part, understanding the various state changes earlier is important to understand the use of the ternary operators and what is displaying at different points in time.
     return (
       <>
-        <div className="w-[100vw] h-full flex flex-col items-center sm:items-start sm:flex sm:flex-row">
-          <div className="sm:w-1/12 w-auto">Hello World</div>
-          <div className="w-[90%] sm:w-5/12 pt-10 sm:px-0 h-[100vh] text-auto z-50">
-            <h2 className="text-cwivel text-left w-full font-semibold mb-2 text-md md:text-lg">
+        <div className="w-[100vw] h-full flex flex-col items-center lg:pl-10 sm:items-center sm:flex sm:flex-row">
+          {/* <div className="sm:w-full w-auto text-center">Hello World</div> */}
+          <div className="w-[100%] sm:w-5/12 pt-10 px-3 sm:px-0 h-[100vh] text-auto z-50">
+            <h2 className="text-cwivel text-left w-full font-semibold px-3 mb-2 text-md md:text-lg">
               Create Account
             </h2>
-            <h4 className="text-gray-500 text-base mb-2">
+            <h4 className="text-gray-500 text-base mb-2 px-3">
               {emailState
                 ? `Let\'s verify your email`
                 : `Let's get your details`}
@@ -226,14 +226,14 @@ export const SignUpUser  = () =>{
               onSubmit={(e) =>{ e.preventDefault(); handleSubmit(submitData(emailInState))}}
               className={
                 emailState
-                  ? "flex flex-col items-start justify-center mt-2"
+                  ? "flex flex-col items-center justify-center mt-2"
                   : "hidden"
               }
             >
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="email" className="mb-2 text-gray-800">
+                <label htmlFor="email" className="w-full text-left px-3 mb-2 text-gray-800">
                   Email
                 </label>
                 <div className="flex  flex-row items-center justify-center w-[90%]">
@@ -255,7 +255,7 @@ export const SignUpUser  = () =>{
                 {errors.email ? <span className='text-[0.8rem] text-red-600 flex items-center'><BiErrorCircle></BiErrorCircle>{errors.email.message}</span>: ""}
               </IconContext.Provider>
               
-              <div className={interEmailState ? "flex flex-col items-center justify-center w-[90%] my-2" : 'hidden'}>
+              <div className={interEmailState ? "flex flex-col items-center justify-center w-[100%] my-2" : 'hidden'}>
                 <span className='text-gray-600 text-sm sm:text-md mb-2'>{`We have sent a One-Time Password to ${informSideNote === ''? emailInState : informSideNote}. Please, ${inform === ''? "verify your email" : inform}`}</span>
                 <div className='input-group flex flex-row mb-2'>   
                     <input className='w-8 rounded-md text-center p-2 border-[1px] mx-2' inputMode="decimal" autoFocus {...digits[0]} />
@@ -311,7 +311,7 @@ export const SignUpUser  = () =>{
                 >
                   First Name
                 </label>
-                <div className="flex flex-row items-center justify-end w-[90%]">
+                <div className="flex flex-row items-center justify-end w-[100%]">
                   <input
                     type= "text"
                     name= 'first_name'
@@ -329,7 +329,7 @@ export const SignUpUser  = () =>{
                 >
                   Last Name
                 </label>
-                <div className="flex flex-col items-center justify-end w-[90%]">
+                <div className="flex flex-col items-center justify-end w-[100%]">
                   <input
                     type= "text"
                     name='last_name'
@@ -344,10 +344,10 @@ export const SignUpUser  = () =>{
               <IconContext.Provider
                 value={{ size: "20", className: "text-gray-400" }}
               >
-                <label htmlFor="password" className="mb-2text-gray-800">
+                <label htmlFor="password" className="mb-2 text-gray-800">
                   Password
                 </label>
-                <div className="flex flex-row items-center justify-end  w-[90%]">
+                <div className="flex flex-row items-center justify-end  w-[100%]">
                   <input
                     type={eyeopen ? "text" : "password"}
                     {...register("password")}
@@ -389,7 +389,7 @@ export const SignUpUser  = () =>{
                 >
                   Confirm Password
                 </label>
-                <div className="flex flex-row items-center justify-end w-[90%]">
+                <div className="flex flex-row items-center justify-end w-[100%]">
                   <input
                     type={eyeopen2 ? "text" : "password"}
                     {...register("password2")}
@@ -433,27 +433,16 @@ export const SignUpUser  = () =>{
               </div>
             </form>
           </div>
-          <div className="w-2/6 sm:w-6/12 sm:flex hidden h-[100vh]">
+          <div className="w-3/6 sm:w-6/12 sm:flex hidden h-[100vh]">
             <img
-              className="object-contain w- lg:absolute lg:top-0 bottom-0  lg:right-0 hidden lg:h-[100vh] lg:block"
+              className="object-contain w-auto lg:absolute lg:top-0 bottom-0  lg:right-0 hidden lg:h-[100vh] lg:block"
               src={SignUpUserImg}
               alt="Signupuserimg"
             />
             <img
-              className="w-inherit lg:absolute lg:right-64 lg:-top-10 bottom-0 lg:rotate-12 hidden lg:h-full lg:block"
-              src={SignUpUserLIne}
-              alt="Sign up user line"
-            />
-
-            <img
               className="object-contain w-auto sm:absolute bottom-0 sm:block lg:hidden sm:top-0 sm:bottom-0 hidden sm:h-[100vh] "
               src={SignUpUserTab}
               alt="Signupuserimg"
-            />
-            <img
-              className="w-auto sm:absolute sm:block bottom-0 lg:hidden sm:right-24 sm:bottom-0 sm:-top-10 sm:h-[100vh]"
-              src={SignUpUserLineTab}
-              alt="Sign up user line"
             />
           </div>
         </div>

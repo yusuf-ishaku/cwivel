@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import { QueryClient, QueryClientProvider} from "react-query";
@@ -13,13 +13,20 @@ import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
 import { ArtisanSignUp } from './pages/artisansignup';
 import { ComingSoon } from './assets/components/comingSoon';
-
+import { NavBar2 } from './assets/components/nav2';
+// import { NavBar2 } from './assets/components/nav2';
+export const DisplayNavContext = createContext("");
 function App() {
   const user = new QueryClient();
+  const [ display, setDisplay ] = useState(false)
   return (
     <div className="App">
       <QueryClientProvider client={user}>
         <Router>
+          <DisplayNavContext.Provider value={ {display, setDisplay} }>
+            <Navbar></Navbar>
+            <NavBar2></NavBar2>
+          </DisplayNavContext.Provider>
           <Routes>
             {/* <Route path='/'  index element={<Navigate to={"/come"}/>}></Route> */}
             <Route path='/' element={<ComingSoon/>}></Route>

@@ -35,11 +35,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 import Group from "../assets/img/Group.png"
+import { NavBar2 } from "../assets/components/nav2";
 export const Home = () => {
     AOS.init();
     return(
         <>
+            
             <Navbar cl={true}/>
+            <NavBar2></NavBar2>
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div  data-aos="fade-down" data-aos-easing="linear"
                         data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">

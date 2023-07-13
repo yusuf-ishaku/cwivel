@@ -1,15 +1,19 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { DisplayNavContext } from "../../App";
 // You'll require a good understanding of how Tail;wind CSS tackles responsiveneess to understand the basic hides and shows on this page.
 export const Navbar = (props) => {
+    const { display, setDisplay } = useContext(DisplayNavContext);
+    // console.log(display)
     return(
-        <div className="w-full bg-cwivel-green px-2 md:px-5 flex md:py-2 flex-row justify-between items-center">
+        <div className="w-full bg-cwivel-green px-2 md:px-5 flex md:py-2 flex-row sticky justify-between items-center">
             <div className=" text-white px-0 sm:px-6 text-sm sm:text-xs p-2">
                 <h1 className="text-white text-sm sm:text-base inline ">Cwivel</h1>
                 <span className="text-teal-600 inline text-xs sm:text-sm">.com</span>
             </div>
             <div className="hidden w-[50%]"><input type="search" name="Search" id="search" placeholder="Search"  className="placeholder-current w-full p-3 bg-white text-cwivel placeholder-black rounded-md focus:outline-none" /></div>
-            <div className="w-full sm:flex flex ml-auto">
+            <div className="w-full hidden sm:flex ml-auto">
                 <div className="w-fit flex flex-row items-center ml-auto">
                     <NavLink to="/"  className={
                         ({isActive, isPending}) =>
@@ -27,6 +31,9 @@ export const Navbar = (props) => {
                         </button>
                     </NavLink>
                 </div>
+            </div>
+            <div className="block sm:hidden">
+                    <GiHamburgerMenu color="white" onClick={() => setDisplay(!display)}></GiHamburgerMenu>
             </div>
         </div>
     )
