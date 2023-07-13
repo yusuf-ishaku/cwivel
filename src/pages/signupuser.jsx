@@ -5,6 +5,7 @@ import SignUpUserImg from '../assets/img/SignUpUserImage.png';
 import SignUpUserLIne from '../assets/img/SignUpUserLine.png';
 import SignUpUserTab from "../assets/img/SignUpImageTab.png";
 import SignUpUserLineTab from '../assets/img/SignUpLineTab.png';
+import Cwivel from '../assets/img/cwivel.png';
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -204,13 +205,15 @@ export const SignUpUser  = () =>{
         }
        
     };
-    // This si the ui part, understanding the various state changes earlier is important to understand the use of the ternary operators and what is displaying at different points in time.
+    // This is the ui part, understanding the various state changes earlier is important to understand the use of the ternary operators and what is displaying at different points in time.
     return (
       <>
         <div className="w-[100vw] h-full flex flex-col items-center lg:pl-10 sm:items-center sm:flex sm:flex-row">
-          {/* <div className="sm:w-full w-auto text-center">Hello World</div> */}
-          <div className="w-[100%] sm:w-5/12 pt-10 px-3 sm:px-0 h-[100vh] text-auto z-50">
-            <h2 className="text-cwivel text-left w-full font-semibold px-3 mb-2 text-md md:text-lg">
+          <div className="w-[90%] sm:pl-10 sm:w-5/12 sm:px-0 h-[100vh] text-auto z-50">
+            <section className="cwivel w-auto flex justify-center sm:justify-start">
+              <img src={Cwivel} alt='Cwivel' className="cwivel max-w-[150px]"></img>
+            </section>
+            <h2 className="text-cwivel text-left w-full font-semibold mb-2 text-md md:text-lg">
               Create Account
             </h2>
             <h4 className="text-gray-500 text-base mb-2 px-3">
@@ -309,7 +312,7 @@ export const SignUpUser  = () =>{
                   htmlFor="first_name"
                   className="mb-2 ml-1 text-gray-800"
                 >
-                  First Name
+                <br></br> First Name
                 </label>
                 <div className="flex flex-row items-center justify-end w-[100%]">
                   <input

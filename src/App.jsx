@@ -13,6 +13,7 @@ import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
 import { ArtisanSignUp } from './pages/artisansignup';
 import { ComingSoon } from './assets/components/comingSoon';
+import { PageNotFound } from './pages/PageNotFound';
 import { NavBar2 } from './assets/components/nav2';
 // import { NavBar2 } from './assets/components/nav2';
 export const DisplayNavContext = createContext("");
@@ -39,11 +40,10 @@ function App() {
             <Route path='/signup' element = {<Signup></Signup>}></Route>
             <Route path='/signupuser' element = {<SignUpUser></SignUpUser>}></Route>
             <Route path='/artisansignup' element = {<ArtisanSignUp></ArtisanSignUp>}></Route>
-            <Route path='*' element = {<h2>Page not found</h2>}/>
+            <Route path='*' element = {<PageNotFound></PageNotFound>}/>
           </Routes>
         </Router>
       </QueryClientProvider>
-   
     </div>
   )
 }

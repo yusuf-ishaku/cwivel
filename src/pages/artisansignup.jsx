@@ -4,7 +4,10 @@ import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import  Axios from "axios";
+import Cwivel from '../assets/img/cwivel.png';
 import { Users } from "./users";
+
+
 export const ArtisanSignUp = () =>{
     const [type, setType] = useState("text");
     const liner = useRef();
@@ -64,9 +67,7 @@ export const ArtisanSignUp = () =>{
         <section className="flex flex-row w-[100vw] fixed md:h-[100vh] h-fit overflow-y-scroll overflow-x-hidden">
             <section ref={secondPage} className="w-[100vw] relative  md:h-[100vh] flex flex-col p-8">
                     <div className="flex items-center justify-center h-10">
-                        <h2>
-                            Cwivel
-                        </h2>
+                        <img src={Cwivel} alt='Cwivel' className="cwivel max-w-[150px] pb-10"></img>
                     </div>
                     <div className="w-full flex flex-col items-center text-center h-10">
                         <h2 className="text-cwivel sm:text-sm md:text-2xl font-semibold">
@@ -88,7 +89,7 @@ export const ArtisanSignUp = () =>{
                                 </label>
                                 <select className="border-[1px] focus:outline-none border-gray-200 p-2 rourrrnded-md" id="cars" name="cars">
                                     <option className="border-[1px]" value="volvo">Cleaner</option>
-                                    <option value="saab"></option>
+                                    <option value="saab">Something</option>
                                     <option value="fiat">Fiat</option>
                                     <option value="audi">Audi</option>
                                 </select>

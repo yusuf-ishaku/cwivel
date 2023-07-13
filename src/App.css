@@ -9,6 +9,10 @@ html{
 input::placeholder{
   color: white;
 }
+.signupimgs{
+  left: 0;
+  top: 0;
+}
 @layer utilities{
   @font-face {
     font-family: 'Digital Numbers';
