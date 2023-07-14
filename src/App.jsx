@@ -19,19 +19,19 @@ import { NavBar2 } from './assets/components/nav2';
 export const DisplayNavContext = createContext("");
 function App() {
   const user = new QueryClient();
-  const [ display, setDisplay ] = useState(false)
+  const [ display, setDisplay ] = useState(false);
+  const [ displayNav, setDisplayNav]  = useState(true)
   return (
     <div className="App">
       <QueryClientProvider client={user}>
+      <DisplayNavContext.Provider value={ {display, setDisplay, displayNav, setDisplayNav} }>
         <Router>
-          <DisplayNavContext.Provider value={ {display, setDisplay} }>
             <Navbar></Navbar>
             <NavBar2></NavBar2>
-          </DisplayNavContext.Provider>
           <Routes>
             {/* <Route path='/'  index element={<Navigate to={"/come"}/>}></Route> */}
-            <Route path='/' element={<ComingSoon/>}></Route>
-            <Route path='/home' element = {<Home/>}></Route>
+            <Route path='/come' element={<ComingSoon/>}></Route>
+            <Route path='/' element = {<Home/>}></Route>
             <Route path='/chat' element = {<Chat/>}></Route>
             <Route path='/dashboard' element ={<Dashboard/>}></Route>
             <Route path='/users' element ={<Users/>}/>
@@ -43,6 +43,7 @@ function App() {
             <Route path='*' element = {<PageNotFound></PageNotFound>}/>
           </Routes>
         </Router>
+        </DisplayNavContext.Provider>
       </QueryClientProvider>
     </div>
   )

@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useContext } from 'react';
 import { useNavigate, Link} from 'react-router-dom';
 import { IconContext } from 'react-icons/lib';
 import SignUpUserImg from '../assets/img/SignUpUserImage.png';
@@ -15,10 +15,18 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import useDigitInput from 'react-digit-input';
 import { BiErrorCircle } from "react-icons/bi";
+import { DisplayNavContext } from '../App';
 export const SignUpUser  = () =>{
     // I did not use redirects or linked pages to change the different looks on the 
     // user sign up page I just changed the ui based on variables that changed  to true and false based on the state. 
     // I used localstorage to preserve the current state of the application in case a user refreshes to prevent losing application state.
+    
+    const { setDisplayNav } = useContext(DisplayNavContext);
+    useEffect(() =>{
+      setDisplayNav(false)
+    }, []);
+    
+    
     const [eyeopen, setEyeOpen] = useState(false);
     const [eyeopen2, setEyeOpen2] = useState(false);
     const [emailState, setEmailState] = useState(JSON.parse(localStorage.getItem("emailState") || true));
@@ -443,7 +451,7 @@ export const SignUpUser  = () =>{
               alt="Signupuserimg"
             />
             <img
-              className="object-contain w-auto sm:absolute bottom-0 sm:block lg:hidden sm:top-0 sm:bottom-0 hidden sm:h-[100vh] "
+              className="object-contain sm:absolute sm:left-[49%] bottom-0 sm:block lg:hidden sm:top-0 sm:bottom-0 hidden sm:h-[100vh] "
               src={SignUpUserTab}
               alt="Signupuserimg"
             />

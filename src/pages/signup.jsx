@@ -4,10 +4,17 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { AiOutlineEye } from 'react-icons/ai';
 import { IconContext } from "react-icons";
 import Cwivel from '../assets/img/cwivel.png';
-
+import { useEffect, useContext } from 'react';
+import { DisplayNavContext } from '../App';
 import { Link } from "react-router-dom";
 
 export const Signup = () =>{
+    const {setDisplayNav, displayNav} = useContext(DisplayNavContext);
+    useEffect(()=>{
+        setDisplayNav(false)
+        console.log(displayNav)
+        // return setDisplayNav(true)
+    }, [])
     return (
         <>
             <div className="w-full">

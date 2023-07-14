@@ -1,4 +1,4 @@
-import React, { useState, useRef} from "react";
+import React, {useEffect, useContext} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay} from "swiper";
 
 import { Navbar } from "../assets/components/navbar";
 import { ArtisanSelect } from "../assets/components/artisanSelect";
@@ -36,13 +36,20 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 import Group from "../assets/img/Group.png"
 import { NavBar2 } from "../assets/components/nav2";
+import { DisplayNavContext } from "../App";
 export const Home = () => {
     AOS.init();
+    const {display, setDisplay, displayNav, setDisplayNav} = useContext(DisplayNavContext);
+
+    useEffect(() => {
+        setDisplayNav(true)
+        console.log(displayNav)
+    }, [])
     return(
         <>
             
-            <Navbar cl={true}/>
-            <NavBar2></NavBar2>
+            {/* <Navbar cl={true}/>
+            <NavBar2></NavBar2> */}
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div  data-aos="fade-down" data-aos-easing="linear"
                         data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">
