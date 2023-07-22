@@ -15,7 +15,7 @@ import * as yup from "yup";
 import { useRef, useState, useEffect, useContext } from 'react';
 import AuthContext from "../context/AuthProvider";
 import axios from '../api/axios';
-import { DisplayNavContext } from '../App';
+// import { DisplayNavContext } from '../App';
 
 /*
 I HONESTLY HAVEN'T FINISHED ALL I SAID I WOULD 
@@ -27,7 +27,7 @@ const LOGIN_URL = '/auth';
 export const Login = () => {
     const [eyeopen, setEyeOpen] = useState(false);
     const { setAuth } = useContext(AuthContext);
-    const {setDisplayNav} = useContext(DisplayNavContext);
+    // const {setDisplayNav} = useContext(DisplayNavContext);
     const userRef = useRef();
     const errRef = useRef();
 
@@ -35,9 +35,9 @@ export const Login = () => {
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
-    useEffect(() =>{
-        setDisplayNav(false)
-    }, []);
+    // useEffect(() =>{
+    //     setDisplayNav(false)
+    // }, []);
 
     useEffect(() => {
         userRef.current.focus();

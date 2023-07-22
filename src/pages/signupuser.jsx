@@ -15,16 +15,16 @@ import { AiFillEye, AiFillEyeInvisible, AiOutlineMail } from 'react-icons/ai';
 import { FcGoogle } from "react-icons/fc";
 import useDigitInput from 'react-digit-input';
 import { BiErrorCircle } from "react-icons/bi";
-import { DisplayNavContext } from '../App';
+// import { DisplayNavContext } from '../App';
 export const SignUpUser  = () =>{
     // I did not use redirects or linked pages to change the different looks on the 
     // user sign up page I just changed the ui based on variables that changed  to true and false based on the state. 
     // I used localstorage to preserve the current state of the application in case a user refreshes to prevent losing application state.
     
-    const { setDisplayNav } = useContext(DisplayNavContext);
-    useEffect(() =>{
-      setDisplayNav(false)
-    }, []);
+    // const { setDisplayNav } = useContext(DisplayNavContext);
+    // useEffect(() =>{
+    //   setDisplayNav(false)
+    // }, []);
     
     
     const [eyeopen, setEyeOpen] = useState(false);

@@ -36,20 +36,19 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 // ..
 import Group from "../assets/img/Group.png"
 import { NavBar2 } from "../assets/components/nav2";
-import { DisplayNavContext } from "../App";
+// import { DisplayNavContext } from "../App";
 export const Home = () => {
     AOS.init();
-    const {display, setDisplay, displayNav, setDisplayNav} = useContext(DisplayNavContext);
+    // const {display, setDisplay, displayNav, setDisplayNav} = useContext(DisplayNavContext);
 
-    useEffect(() => {
-        setDisplayNav(true)
-        console.log(displayNav)
-    }, [])
+    // useEffect(() => {
+    //     setDisplayNav(true)
+    //     console.log(displayNav)
+    // }, [])
     return(
         <>
             
-            {/* <Navbar cl={true}/>
-            <NavBar2></NavBar2> */}
+            <Navbar></Navbar>
             <div className="w-full px-0 sm:px-10 md:px-14">
                 <div  data-aos="fade-down" data-aos-easing="linear"
                         data-aos-duration="1000"  className="hero px-4 sm:px-0 w-full py-12 flex flex-row justify-between items-center">

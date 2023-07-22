@@ -107,7 +107,7 @@ export const ArtisanSignUp = () =>{
                                             
                                             countryList.map((element, x) =>{
                                                 return(
-                                                    <li onClick={(e) =>pickCountry(element.name.common)} className={"border-b-[1px] cursor-pointer list-none p-2"}>{element.name.common}</li>
+                                                    <li key={x} onClick={(e) =>pickCountry(element.name.common)} className={"border-b-[1px] cursor-pointer list-none p-2"}>{element.name.common}</li>
                                                 )
                                             })
                                         

@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./index.html",
     "./src/App.jsx",
+    "./src/main.jsx",
     "./src/assets/components/navbar.jsx",
     "./src/pages/signup.jsx",
     "./src/pages/chat.jsx",
