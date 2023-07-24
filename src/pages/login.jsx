@@ -8,7 +8,6 @@ import SignupLine from '../assets/img/login-line.png';
 import SignUpLineTab from '../assets/img/LoginLineTab.png';
 import SignupImageTab from '../assets/img/LoginImageTab.png'
 import { useForm } from 'react-hook-form';
-import  Axios  from 'axios';
 import {yupResolver} from "@hookform/resolvers/yup";
 import { BiErrorCircle } from "react-icons/bi";
 import * as yup from "yup";
@@ -16,13 +15,7 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import AuthContext from "../context/AuthProvider";
 import axios from '../api/axios';
 // import { DisplayNavContext } from '../App';
-
-/*
-I HONESTLY HAVEN'T FINISHED ALL I SAID I WOULD 
-AS I HAVE BEEN OVERLY OCCUPIED THAN USUAL...
-APOLOGIES FOR THE SLACKING IN THE DEVELOPEMENT..
-*/
-const LOGIN_URL = '/auth';
+const LOGIN_URL = '/auth/login';
 
 export const Login = () => {
     const [eyeopen, setEyeOpen] = useState(false);
@@ -92,7 +85,7 @@ export const Login = () => {
                 </section>
             ) : (
                 <div className='w-full h-full flex flex-col-reverse items-center sm:flex sm:flex-row sm:justify-center sm:items-start'>
-                    <section className='w-4/6 sm:w-3/6 hidden sm:block h-full'>
+                    <section className='w-4/6 sm:w-3/6 hidden -z-10 sm:block h-full'>
                         <img className='w-auto hidden lg:block  absolute h-[100vh] signupimgs' src={SignupImage} alt=''></img>
                         <img className='w-auto hidden sm:block lg:hidden absolute h-[100vh] signupimgs' src={SignupImageTab} alt=''></img>
                         <img className='w-auto hidden lg:block absolute ml-60 h-[100vh] signupimgs' src={SignupLine} alt=""></img>
