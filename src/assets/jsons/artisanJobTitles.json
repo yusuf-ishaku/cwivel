@@ -1,0 +1,298 @@
+[
+    {
+        "id": 1,
+        "name": "Barber"
+    },
+    {
+        "id": 2,
+        "name": "Basket Weaver"
+    },
+    {
+        "id": 3,
+        "name": "Beadwork Artisan"
+    },
+    {
+        "id": 4,
+        "name": "Blacksmith"
+    },
+    {
+        "id": 5,
+        "name": "Bladesmith"
+    },
+    {
+        "id": 6,
+        "name": "Book Artist"
+    },
+    {
+        "id": 7,
+        "name": "Book Conservator"
+    },
+    {
+        "id": 8,
+        "name": "Bookbinder"
+    },
+    {
+        "id": 9,
+        "name": "Brush Maker"
+    },
+    {
+        "id": 10,
+        "name": "Cabinetmaker"
+    },
+    {
+        "id": 11,
+        "name": "Calligrapher"
+    },
+    {
+        "id": 12,
+        "name": "Candle Maker"
+    },
+    {
+        "id": 13,
+        "name": "Carpenter"
+    },
+    {
+        "id": 14,
+        "name": "Ceramic Artist"
+    },
+    {
+        "id": 15,
+        "name": "Ceramic Mold Maker"
+    },
+    {
+        "id": 16,
+        "name": "Ceramic Painter"
+    },
+    {
+        "id": 17,
+        "name": "Clay Sculptor"
+    },
+    {
+        "id": 18,
+        "name": "Doll Maker"
+    },
+    {
+        "id": 19,
+        "name": "Dyer (Dyeing and Coloring Fabrics)"
+    },
+    {
+        "id": 20,
+        "name": "Embroiderer"
+    },
+    {
+        "id": 21,
+        "name": "Embroidery Artist"
+    },
+    {
+        "id": 22,
+        "name": "Fashion Designer"
+    },
+    {
+        "id": 23,
+        "name": "Furniture Maker"
+    },
+    {
+        "id": 24,
+        "name": "Furniture Upholsterer"
+    },
+    {
+        "id": 25,
+        "name": "Gemstone Setter"
+    },
+    {
+        "id": 26,
+        "name": "Glass Artist"
+    },
+    {
+        "id": 27,
+        "name": "Glass Engraver"
+    },
+    {
+        "id": 28,
+        "name": "Glass Sculptor"
+    },
+    {
+        "id": 29,
+        "name": "Glassblower"
+    },
+    {
+        "id": 30,
+        "name": "Goldsmith"
+    },
+    {
+        "id": 31,
+        "name": "Hair Braider"
+    },
+    {
+        "id": 32,
+        "name": "Hair Colorist"
+    },
+    {
+        "id": 33,
+        "name": "Hair Extension Specialist"
+    },
+    {
+        "id": 34,
+        "name": "Hair Updo Specialist"
+    },
+    {
+        "id": 35,
+        "name": "Haircutting Specialist"
+    },
+    {
+        "id": 36,
+        "name": "Hairstylist"
+    },
+    {
+        "id": 37,
+        "name": "Hat Block Maker"
+    },
+    {
+        "id": 38,
+        "name": "Hat Maker (Milliner)"
+    },
+    {
+        "id": 39,
+        "name": "Instrument Maker (e.g., Guitar Maker, Violin Maker)"
+    },
+    {
+        "id": 40,
+        "name": "Jeweler"
+    },
+    {
+        "id": 41,
+        "name": "Leather Artisan"
+    },
+    {
+        "id": 42,
+        "name": "Leather Carver"
+    },
+    {
+        "id": 43,
+        "name": "Leather Craftsman"
+    },
+    {
+        "id": 44,
+        "name": "Leather Tooling Artisan"
+    },
+    {
+        "id": 45,
+        "name": "Luthier (Stringed Instrument Maker)"
+    },
+    {
+        "id": 46,
+        "name": "Metal Clay Artist"
+    },
+    {
+        "id": 47,
+        "name": "Metal Engraver"
+    },
+    {
+        "id": 48,
+        "name": "Metal Fabricator"
+    },
+    {
+        "id": 49,
+        "name": "Metal Sculptor"
+    },
+    {
+        "id": 50,
+        "name": "Milliner"
+    },
+    {
+        "id": 51,
+        "name": "Mixed Media Artist"
+    },
+    {
+        "id": 52,
+        "name": "Mosaic Artist"
+    },
+    {
+        "id": 53,
+        "name": "Music Instrument Maker"
+    },
+    {
+        "id": 54,
+        "name": "Painter"
+    },
+    {
+        "id": 55,
+        "name": "Papermaker"
+    },
+    {
+        "id": 56,
+        "name": "Parchmenter"
+    },
+    {
+        "id": 57,
+        "name": "Pewterer"
+    },
+    {
+        "id": 58,
+        "name": "Photographer"
+    },
+    {
+        "id": 59,
+        "name": "Picture Framer"
+    },
+    {
+        "id": 60,
+        "name": "Potter"
+    },
+    {
+        "id": 61,
+        "name": "Printmaker"
+    },
+    {
+        "id": 62,
+        "name": "Puppet Maker"
+    },
+    {
+        "id": 63,
+        "name": "Quilter"
+    },
+    {
+        "id": 64,
+        "name": "Rug Maker"
+    },
+    {
+        "id": 65,
+        "name": "Sculptor"
+    },
+    {
+        "id": 66,
+        "name": "Silversmith"
+    },
+    {
+        "id": 67,
+        "name": "Stained Glass Artist"
+    },
+    {
+        "id": 68,
+        "name": "Tailor"
+    },
+    {
+        "id": 69,
+        "name": "Taxidermist"
+    },
+    {
+        "id": 70,
+        "name": "Textile Artist"
+    },
+    {
+        "id": 71,
+        "name": "Weaver"
+    },
+    {
+        "id": 72,
+        "name": "Wood Carver"
+    },
+    {
+        "id": 73,
+        "name": "Wood Engraver"
+    },
+    {
+        "id": 74,
+        "name": "Woodturner"
+    }
+]
