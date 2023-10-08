@@ -13,7 +13,6 @@ import { Login } from './pages/login';
 import { Signup } from './pages/signup';
 import { SignUpUser } from './pages/signupuser';
 import { ArtisanSignUp } from './pages/artisansignup';
-import { ComingSoon } from './assets/components/comingSoon';
 import { PageNotFound } from './pages/PageNotFound';
 import { NavBar2 } from './assets/components/nav2';
 import { useState, createContext } from 'react';
@@ -24,10 +23,6 @@ let cwivelRouter = createBrowserRouter([
     path: "/",
     element: <Home></Home>,
     errorElement: <PageNotFound></PageNotFound>
-  },
-  {
-    path: "/come",
-    element: <ComingSoon></ComingSoon>
   },
   {
     path: "/login",
@@ -65,8 +60,8 @@ let cwivelRouter = createBrowserRouter([
 const user = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <QueryClientProvider client={user}>
-      <RouterProvider router={cwivelRouter}></RouterProvider>
-  </QueryClientProvider>
+      <QueryClientProvider client={user}>
+        <RouterProvider router={cwivelRouter}></RouterProvider>
+      </QueryClientProvider>
   </React.StrictMode>,
 )
